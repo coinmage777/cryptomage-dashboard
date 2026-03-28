@@ -57,18 +57,13 @@ const P = [
     strat:"거래량 축적 + Earn 예치 + 포인트 파밍. 봇 자동화 가능.", ref:"https://grvt.io/exchange/sign-up?ref=1O9U2GG",
     yt:[{t:"초보자 GRVT 올인원 가이드",u:"https://youtu.be/cYnAPdjzjhk"},{t:"GRVT 자동매매 봇",u:"https://www.youtube.com/watch?v=aIBweqY8A4s"}]},
 
-  {id:2,n:"Nado",tier:1,cat:"PerpDEX",ch:"Ink (Kraken)",logo:LL("nado-spot.jpg"),st:"진행중",rw:"대형",fund:"Kraken",dist:"$INK 확정",tge:"Q3-Q4 2026",
-    desc:"Kraken이 직접 인큐베이팅한 Ink L2 네이티브 Perp DEX.",
-    insight:"Kraken이 $150B+ 거래량 인프라를 기반으로 직접 만든 프로젝트. $INK 토큰 에어드랍이 공식 확정된 극소수 프로젝트 중 하나. Nado 사용 시 Ink L2 배분 최다 수혜 예상. NLP(네이티브 유동성 풀) 예치로 추가 수익 창출 가능. USDC/kBTC/WETH Perp 거래가 핵심이며 크로스마진 기능으로 자본 효율성 높음.",
-    strat:"USDC/kBTC/WETH Perp 거래 + NLP 예치.", ref:"https://nado.xyz",
-    yt:[{t:"크라켄이 만든 퍼프덱스 Nado",u:"https://youtu.be/Fyq8M2Cy__I"},{t:"Nado 자동매매 봇",u:"https://www.youtube.com/watch?v=Fyq8M2Cy__I"}]},
 
   {id:3,n:"Aster",tier:1,cat:"PerpDEX",ch:"Aster L1",logo:LL("aster-bridge.jpg"),st:"진행중",rw:"대형",fund:"YZi Labs (CZ)",dist:"53.5%",tge:"진행중",hot:true,
     desc:"CZ 어드바이저. 1001x 레버리지, 히든오더, 크로스체인 차세대 Perp DEX.",
     insight:"역대 최대 53.5% 커뮤니티 에어드랍으로 화제. Stage 6 진행중이며 일일 거래량 $787M ATH 기록. 전 바이낸스 직원 다수 합류. 자체 L1 테스트넷 가동 중이며 1001x 레버리지, 히든오더(대규모 주문 숨김), 크로스체인 결제 등 혁신적 기능 탑재. YZi Labs(구 Binance Labs) 직접 지원으로 바이낸스 상장 가능성도 높게 점쳐짐.",
     strat:"Stage 6 파밍 + 거래 볼륨 + 스테이킹.", ref:"https://aster.trade",yt:[]},
 
-  {id:4,n:"Genius",tier:1,cat:"PerpDEX",ch:"Multi-chain",logo:LL("genius.jpg"),st:"진행중",rw:"대형",fund:"YZi Labs (CZ)",dist:"미정",tge:"Apr 12, 2026",hot:true,
+  {id:4,n:"Genius",tier:1,cat:"PerpDEX",ch:"Multi-chain",logo:TW("2001105770780483585/Ph9MFPHV_400x400.jpg"),st:"진행중",rw:"대형",fund:"YZi Labs (CZ)",dist:"미정",tge:"Apr 12, 2026",hot:true,
     desc:"YZi Labs 8자리 투자 + CZ 어드바이저. 올인원 트레이딩 터미널.",
     insight:"2026.04.12 GENIUS 토큰 생성 확정. TGE 임박이라 지금이 마지막 참여 기회. YZi Labs가 8자리 달러를 투자. S1 마감 임박 — 주간 1,000만 GP(Genius Points) 배포 중이며 포인트→토큰 전환 시 50% 보너스 예정. 스팟 거래 볼륨이 GP 배분 핵심 기준.",
     strat:"스팟 거래 볼륨 축적 (GP 배분 기준) + S1 마감 전 참여.", ref:"https://genius.trade",yt:[]},
@@ -85,7 +80,7 @@ const P = [
     strat:"주식/원자재 Perp 거래 + XVS 예치.", ref:"https://app.extended.exchange/join/COINMAGE",
     yt:[{t:"Extended Revolut DNA",u:"https://youtu.be/3InSD1rIxwk"}]},
 
-  {id:7,n:"Glider",tier:1,cat:"DeFi",ch:"Multi-chain",logo:TW("1899435895725408256/htVCSdOc_400x400.jpg"),st:"진행중",rw:"대형",fund:"a16z, Coinbase",dist:"미정",tge:"미정",
+  {id:7,n:"Glider",tier:1,cat:"DeFi",ch:"Multi-chain",logo:TW("2008111141957021696/fUFRZjS3_400x400.jpg"),st:"진행중",rw:"대형",fund:"a16z, Coinbase",dist:"미정",tge:"미정",
     desc:"AI DeFi 수익 최적화. a16z + Coinbase + Uniswap 삼중 백업.",
     insight:"a16z + Coinbase Ventures + Uniswap Labs 삼대 메이저 동시 투자는 극히 이례적. AI가 DeFi 포트폴리오를 자동 리밸런싱하고 수익률 최적화. 예치만 하면 AI가 최적 전략 실행하는 구조라 난이도 최하. DeFi 초보자도 접근 가능한 쉬운 난이도 대비 대형 VC급 보상 기대.",
     strat:"예치 + 포인트 축적. AI가 알아서 관리.", ref:"https://glider.fi",yt:[]},
@@ -93,14 +88,9 @@ const P = [
   {id:8,n:"Base",tier:1,cat:"L2",ch:"Base",logo:CL("base"),st:"예상",rw:"대형",fund:"Coinbase ($500M+)",dist:"20-25%",tge:"Q2-Q4 2026",
     desc:"Coinbase L2. 토큰 탐색 공식 확인. JPMorgan 추정 $12-34B.",
     insight:"Jesse Pollak(Base 리더)이 네트워크 토큰 탐색 공식 확인. JPMorgan 추정 에어드랍 규모 $2.4-8.5B — 역대 최대 에어드랍 가능성. OP Stack 기반 최대 L2로 수백만 활성 유저 보유. Coinbase 8,000만 인증 유저 베이스가 핵심 차별점.",
-    strat:"Base dApp 활동 + 브릿지 + Basedapp 3중 파밍.", ref:"https://base.app/invite/coinmage/VGM6F57T",
+    strat:"Base dApp 활동 + 브릿지 + DeFi 파밍.", ref:"https://base.app/invite/coinmage/VGM6F57T",
     yt:[{t:"중국이 주목하는 에어드랍 2026",u:"https://youtu.be/aIr4gE59IWQ"}]},
 
-  {id:9,n:"Basedapp",tier:1,cat:"DeFi",ch:"Base",logo:LL("basedapp.jpg"),st:"진행중",rw:"대형",fund:"Base 에코",dist:"미정",tge:"미정",
-    desc:"Base 올인원 DeFi. 3중 파밍 + 비자카드.",
-    insight:"Base 토큰 출시 시 에코시스템 전체 수혜 — Basedapp이 가장 직접적 수혜자. 비자카드 연동으로 실사용 가치. 3중 파밍(Base 포인트 + Basedapp 포인트 + DeFi 수익)으로 복리 효과 극대화.",
-    strat:"3중 파밍 (Base+Basedapp+DeFi) + 비자카드 활용.", ref:"https://basedapp.com",
-    yt:[{t:"Base 대형 에드작",u:"https://youtu.be/aIr4gE59IWQ"}]},
 
   // ══ TIER 2 — 주요 참여 ══
   {id:20,n:"Ethereal",tier:2,cat:"PerpDEX",ch:"Ethereum",logo:LL("ethereal-dex.jpg"),st:"진행중",rw:"대형",fund:"Ethena",dist:"15%",tge:"미정",
@@ -136,17 +126,7 @@ const P = [
     strat:"거래 볼륨 + 주간 포인트 + 안티시빌 우대.", ref:"https://app.pacifica.fi?referral=cryptocurrencymage",
     yt:[{t:"Pacifica Perp DEX",u:"https://youtu.be/kabzoJJBto0"}]},
 
-  {id:26,n:"Avantis",tier:2,cat:"PerpDEX",ch:"Base",logo:LL("avantis.png"),st:"진행중",rw:"중형",fund:"Base 에코",dist:"미정",tge:"미정",
-    desc:"Base RWA 파생 Perp DEX. 주식/FX/원자재 온체인.",
-    insight:"Equity Perps 내러티브 Base 대표 주자. 주식(TSLA, AAPL), 외환(EUR/USD), 금, 원자재를 24시간 온체인 Perp으로 거래 가능. Base 토큰 출시 시 에코시스템 수혜 + Avantis 자체 보상 이중 효과. Extended와 함께 2026 Equity Perps 핵심. 미국 장 마감 후에도 거래 가능하다는 점이 TradFi 대비 강력한 차별점.",
-    strat:"RWA Perp 거래 + Base 포인트 동시 파밍.", ref:"https://www.avantisfi.com/referral?code=coinmage",
-    yt:[{t:"Avantis RWA Perp",u:"https://youtu.be/uTPhivRidMo"}]},
 
-  {id:27,n:"Supercexy",tier:2,cat:"PerpDEX",ch:"HyperEVM",logo:LL("supercexy.jpg"),st:"진행중",rw:"중형~대형",fund:"-",dist:"미정",tge:"미정",
-    desc:"Hyperliquid 모바일 최적화 Perp DEX. 50x 레버리지.",
-    insight:"모바일 최적화 PerpDEX로 Hyperliquid 생태계 핵심 프론트엔드. 트레일링 스탑, 아이스버그, TP/SL 등 고급 주문 유형 지원으로 프로 트레이더에게 인기. Builder Code로 HL XP + Supercexy 포인트 동시 획득. 모바일 앱 완성도가 높아 이동 중 트레이딩에 최적화. HL 생태계에서 Based와 함께 2대 모바일 프론트엔드.",
-    strat:"모바일 Perp 거래 + HL 포인트 동시 파밍.", ref:"https://supercexy.com/@coinmage",
-    yt:[{t:"Supercexy 모바일 PerpDEX",u:"https://youtu.be/m3PVod_jg2s"}]},
 
   {id:28,n:"Hylo",tier:2,cat:"DeFi",ch:"Solana",logo:LL("hylo-protocol.jpg"),st:"진행중",rw:"중형",fund:"-",dist:"미정",tge:"미정",
     desc:"Solana 레버리지 수익률 프로토콜.",
@@ -160,21 +140,8 @@ const P = [
     strat:"터미널 통해 다중 DEX 동시 파밍.", ref:"https://miracletrade.com/?ref=coinmage",
     yt:[{t:"Miracle 터미널",u:"https://youtu.be/jNCnE_meJTw"}]},
 
-  {id:30,n:"Aztec",tier:2,cat:"L2",ch:"Aztec",logo:LL("aztec-connect.jpg"),st:"진행중",rw:"대형",fund:"$119M",dist:"미정",tge:"미정",
-    desc:"프라이버시 zk-rollup L2. a16z + Paradigm $119M.",
-    insight:"a16z + Paradigm $119M 역대 최대 프라이버시 프로젝트. 거래 내역, 잔고, 스마트컨트랙트 로직까지 전부 비공개하는 완전한 zk-zk 프라이버시. 2026년 프라이버시 내러티브의 핵심. 테스트넷 초기 참여가 레트로 에어드랍에 유리.",
-    strat:"테스트넷 활동 + 트랜잭션 축적.", ref:"https://aztec.network",yt:[]},
 
-  {id:31,n:"Zama",tier:2,cat:"인프라",ch:"Multi-chain",logo:TW("1455022330128728071/PNGpE3eS_400x400.jpg"),st:"진행중",rw:"대형",fund:"$57M",dist:"미정",tge:"미정",
-    desc:"FHE 프라이버시 인프라. Pantera 리드. 유니콘.",
-    insight:"Pantera Capital 리드 $57M 유니콘. FHE(완전동형암호화)는 암호화된 데이터를 복호화 없이 연산하는 기술 — 프라이버시의 궁극적 해법. Aztec과 함께 2026 프라이버시 양대 축.",
-    strat:"테스트넷 참여 + 개발자 캠페인.", ref:"https://zama.ai",yt:[]},
 
-  {id:32,n:"Ranger",tier:2,cat:"PerpDEX",ch:"Solana",logo:LL("ranger-finance-perps.jpg"),st:"진행중",rw:"중형~대형",fund:"-",dist:"미정",tge:"미정",
-    desc:"Solana 최초 PerpDEX 애그리게이터.",
-    insight:"Jupiter(스팟)의 Perp 버전. 다수 Solana Perp DEX 호가 비교 자동 라우팅. Solana 빠른 체결 + 애그리게이터 최적 가격 결합. 퍼프덱스 메가트렌드 Solana축 핵심.",
-    strat:"Ranger 통한 Solana Perp 거래.", ref:"https://ranger.finance",
-    yt:[{t:"Ranger Solana",u:"https://youtu.be/Aaez44YeR8U"}]},
 
   // ══ TIER 3 — 모니터링 ══
   {id:50,n:"StandX",tier:3,cat:"PerpDEX",ch:"Multi",logo:LL("standx-perps.jpg"),rw:"중형",st:"진행중",
@@ -194,10 +161,6 @@ const P = [
     insight:"HyperEVM 핵심 스테이블코인 프로토콜. ETH/HYPE를 담보로 feUSD 민팅 후 Stability Pool에 예치하면 청산 이벤트 발생 시 할인된 담보를 수익으로 획득. S2 포인트 진행중이며 초기 참여자 우대 가능성. HYPE 생태계의 MakerDAO 역할로 생태계 성장 시 핵심 인프라로 직접 수혜. Liquity V2 포크 기반으로 검증된 코드베이스.",
     strat:"feUSD 민팅 + Stability Pool 예치.", ref:"https://usefelix.xyz",yt:[]},
 
-  {id:53,n:"PIN AI",tier:3,cat:"AI",ch:"Multi",logo:TW("1875598296078561280/SMePVcaG_400x400.jpg"),rw:"중형",st:"진행중",fund:"$10M a16z",
-    desc:"a16z + Hack VC $10M. AI 의사결정 플랫폼.",
-    insight:"a16z crypto + Hack VC + NEAR 창립자가 공동 투자한 AI 프로젝트. Google Brain, Stanford, MIT 출신 엘리트 팀이 개인 AI 어시스턴트를 개발 중. TGE Q2 2026 예상으로 참여 시간 아직 충분. HiPIN 포인트 축적 + Galxe에서 100만 PIN Points 캠페인 활성. AI + 크립토 내러티브 교차점에 위치해 두 시장 모두 성장 시 수혜.",
-    strat:"HiPIN 포인트 + Galxe 캠페인.", ref:"https://pinai.io",yt:[]},
 
   {id:54,n:"OnRe",tier:3,cat:"DeFi",ch:"Solana",logo:LL("onre.jpg"),rw:"중형",st:"진행중",
     desc:"Solana 수익률 프로토콜. 리더보드 보상.",
@@ -205,15 +168,7 @@ const P = [
     strat:"SOL/스테이블 예치 + 리더보드 순위.", ref:"https://app.onre.finance/earn/leaderboard?ref=FQLFHEYMW",
     yt:[{t:"Solana 수익률",u:"https://youtu.be/15JiPzLcwdU"}]},
 
-  {id:55,n:"Linea",tier:3,cat:"L2",ch:"Linea",logo:CL("linea"),rw:"중형",st:"진행중",fund:"ConsenSys",
-    desc:"ConsenSys(MetaMask) L2. LXP 이중 포인트.",
-    insight:"MetaMask 모회사 ConsenSys가 직접 만든 L2로 강력한 백업. LXP(활동 포인트) + LXP-L(유동성 포인트) 이중 포인트 시스템 운영. MetaMask 8,000만 유저 베이스와 통합이 핵심 차별점. zkEVM 기술로 이더리움 완전 호환 + 저렴한 가스비. 대형 L2 중 아직 토큰 미발행이라 에어드랍 기대감 높음.",
-    strat:"브릿지 + DeFi + LXP 이중 포인트.", ref:"https://referrals.linea.build/?refCode=plOzXsJ9qL",yt:[]},
 
-  {id:56,n:"Plume",tier:3,cat:"RWA",ch:"Plume",logo:CL("plume"),rw:"중형",st:"진행중",
-    desc:"RWA 특화 L1. 실물자산 토큰화.",
-    insight:"RWA(실물자산 토큰화) 전문 L1 체인으로 부동산, 채권, 수익권 등을 온체인화. Miles 포인트 활성 중이며 초대 코드로 보너스 획득 가능. 2026년 RWA 시장이 BlackRock, Franklin Templeton 등 기관 참여로 급성장하면서 RWA 전용 체인의 가치 상승 기대. $PLUME 토큰 TGE 후 생태계 확장 가속.",
-    strat:"Miles 포인트 + 생태계 활동.", ref:"https://miles.plumenetwork.xyz/join?invite=PLUME-MC0GB",yt:[]},
 
   {id:57,n:"xStocks",tier:3,cat:"DeFi",ch:"Multi",logo:LL("xstocks.jpg"),rw:"중형",st:"진행중",
     desc:"온체인 주식 토큰 거래. Equity Perps.",
@@ -237,10 +192,6 @@ const P = [
     insight:"Pudgy Penguins(월마트 판매 1위 NFT) 모회사 Igloo가 만든 L2. $11M 펀딩 완료. XP + 배지 시스템으로 활동 기반 포인트 축적. PENGU 홀더에게 보너스 기대. 소비자 친화적 L2로 NFT, 게임, 소셜 분야 킬러앱 유치에 집중. 강력한 브랜드 인지도가 핵심 차별점.",
     strat:"XP 포인트 + 생태계 dApp 활동.", ref:"https://abs.xyz",yt:[]},
 
-  {id:61,n:"Symbiotic",tier:3,cat:"DeFi",ch:"Ethereum",logo:LL("symbiotic.png"),rw:"중형",st:"진행중",fund:"$34.8M",
-    desc:"리스테이킹. Paradigm + Pantera $34.8M.",
-    insight:"Paradigm + Pantera $34.8M + Coinbase Ventures + Polygon이 공동 투자한 리스테이킹 프로토콜. EigenLayer의 대항마로 ERC-20 기반 리스테이킹으로 다양한 블록체인에 보안 제공. 2026년 AI + Bitcoin LST로 확장 중. 포인트가 레트로 에어드랍으로 전환될 가능성 높으며 대형 VC 라인업이 토큰 가치 보증.",
-    strat:"ETH/LST 예치 + 포인트.", ref:"https://symbiotic.fi",yt:[]},
 ];
 
 const VIBE_VIDS = [
@@ -435,10 +386,10 @@ function AirdropsSection() {
     <div className="space-y-5">
       <div className="pt-6 pb-2">
         <motion.h1 initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} className="text-2xl sm:text-3xl font-bold text-white mb-1 tracking-tight">에어드랍 트래커</motion.h1>
-        <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.1}} className="text-sm text-zinc-500 mb-1">미상장 유망 프로젝트 · 레퍼럴 코드 · 참여 전략</motion.p>
+        <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.1}} className="text-sm text-zinc-500 mb-1">미상장 유망 프로젝트 · 참여 전략</motion.p>
         <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.15}} className="text-[10px] text-zinc-600 mb-5 flex items-center gap-1.5"><Clock size={10}/>Last updated: 2026.03.29</motion.p>
-        <div className="grid grid-cols-2 gap-3">
-          {[{v:P.length,l:"미상장 프로젝트",c:"from-violet-500/20 to-fuchsia-500/10",t:"text-white",I:Globe},{v:P.filter(p=>p.ref&&p.ref!=="#").length,l:"레퍼럴 코드",c:"from-emerald-500/20 to-teal-500/10",t:"text-emerald-300",I:Layers}].map((s,i)=>(
+        <div className="grid grid-cols-1 gap-3 max-w-xs">
+          {[{v:P.length,l:"미상장 프로젝트",c:"from-violet-500/20 to-fuchsia-500/10",t:"text-white",I:Globe}].map((s,i)=>(
             <motion.div key={i} initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:0.1+i*0.05}}
               className={`bg-gradient-to-br ${s.c} backdrop-blur-sm border border-white/[0.06] rounded-2xl p-4 text-center relative overflow-hidden`}>
               <div className="absolute top-2 right-2 opacity-10"><s.I size={28}/></div>
