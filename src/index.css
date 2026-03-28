@@ -10,15 +10,18 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #0a0a0b;
+  background: #050507;
   color: #e4e4e7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0a0a0b; }
-::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #27272a; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
 
 ::selection { background: rgba(139,92,246,0.3); color: #fff; }
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
