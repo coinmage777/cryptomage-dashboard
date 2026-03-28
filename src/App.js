@@ -1,23 +1,31 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Search, Play, TrendingUp, Users, Video, ExternalLink, ChevronDown, Menu, X } from 'lucide-react';
 
-const YT = "https://www.youtube.com/@cryptocurrencymage";
-const yt = (t) => `https://www.youtube.com/@cryptocurrencymage/search?query=${encodeURIComponent(t)}`;
+/* ═══════════════════════════════════════════════════════════════════════════════ */
+/* COLOR & STYLING MAPPINGS */
+/* ═══════════════════════════════════════════════════════════════════════════════ */
 
-/* ═══ Palette ═══ */
-const GOLD = "#C9A96E";
-const GOLD_DIM = "#A08B5A";
 const CAT_COLORS = {
-  "에어드랍": "#C9A96E",
-  "AI 툴": "#6BA3BE",
-  "밈코인": "#D4735E",
-  "얍핑": "#9B7EC8",
-  "트레이딩": "#5EAD8C",
-  "시장 분석": "#7E8BA8",
+  "전체": "bg-slate-700",
+  "에어드랍": "bg-purple-500",
+  "AI 툴": "bg-blue-500",
+  "밈코인": "bg-pink-500",
+  "얍핑": "bg-amber-500",
+  "트레이딩": "bg-orange-500",
+  "시장 분석": "bg-emerald-500",
 };
-const DIFF_STYLE = {
-  "쉬움": { bg: "rgba(94,173,140,.12)", color: "#5EAD8C", border: "rgba(94,173,140,.2)" },
-  "보통": { bg: "rgba(201,169,110,.12)", color: "#C9A96E", border: "rgba(201,169,110,.2)" },
-  "어려움": { bg: "rgba(212,115,94,.12)", color: "#D4735E", border: "rgba(212,115,94,.2)" },
+
+const STATUS_COLORS = {
+  "진행중": "bg-purple-500/20 text-purple-300 border border-purple-500/40",
+  "확인됨": "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40",
+  "예상": "bg-amber-500/20 text-amber-300 border border-amber-500/40",
+};
+
+const DIFFICULTY_COLORS = {
+  "쉬움": "bg-teal-500/20 text-teal-300",
+  "보통": "bg-amber-500/20 text-amber-300",
+  "어려움": "bg-red-500/20 text-red-300",
 };
 
 /* ═══ All 67 Projects ═══ */
@@ -102,304 +110,310 @@ const P=[
   {id:501,n:"에어드랍 올인원",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"하루 10분 → 월 300.",steps:["선정","루틴","10분","포인트","수익"],lk:{},tg:["에어드랍","입문"],vids:[{t:"하루 10분 월 300",v:"5천회",a:"7개월 전"},{t:"다음 100배",v:"1.4천회",a:"4개월 전"},{t:"목표 10억",v:"1.9천회",a:"4개월 전"}]},
   {id:502,n:"DePIN 11종",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"5천만원 수익 DePIN 11종.",steps:["DePIN 이해","11종","설치","자동화","수익"],lk:{},tg:["DePIN","올인원"],vids:[{t:"DePIN 11종",v:"1.9천회",a:"1년 전"}]},
   {id:503,n:"NordVPN",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"코인 투자자 필수 VPN.",steps:["가입","설치","Kill Switch","서버","보안"],lk:{},tg:["보안","VPN"],vids:[{t:"NordVPN 필수인 이유",v:"394회",a:"9개월 전"}]},
-  {id:504,n:"ZKCODEX",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"에어드랍 체커 올인원.",steps:["ZKCODEX","지갑","체크","자격","클레임"],lk:{},tg:["체커","툴"],vids:[{t:"ZKCODEX 에어드랍 체커",v:"1천회",a:"1년 전"}]},
-  {id:505,n:"코인 밋업",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"밋업 알파 파머 전략.",steps:["밋업 정보","리서치","참여","네트워킹","알파"],lk:{},tg:["밋업","네트워킹"],vids:[{t:"코인 밋업 알파 파머",v:"376회",a:"7개월 전"}]},
-  {id:506,n:"메타마스크 가이드",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"메타마스크 완전 입문.",steps:["크롬 확장","지갑","시드","네트워크","토큰"],lk:{o:"https://metamask.io"},tg:["지갑","입문"],vids:[{t:"메타마스크 설치 사용법",v:"240회",a:"1년 전"}]},
-  {id:507,n:"업비트→바이낸스",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"업비트→바이낸스 전송.",steps:["업비트 출금","바이낸스 주소","네트워크","전송","확인"],lk:{},tg:["거래소","입문"],vids:[{t:"업비트→바이낸스 전송법",v:"371회",a:"1년 전"}]},
-  {id:508,n:"Atok",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"걷기+미션 = Web3 리워드앱.",steps:["Atok 앱","가입","광고","걷기","미션"],lk:{},tg:["리워드","무료"],vids:[{t:"Web3 리워드앱 Atok",v:"621회",a:"8개월 전"}]},
+  {id:504,n:"ZKCODEX",cat:"시장 분석",ch:null,st:null,diff:"쉬움",rw:null,sum:"에어드랍 체커 올인원.",steps:["ZKCODEX","지갑","체크","자격","클레임"],lk:{},tg:["체커","에어드랍"],vids:[]}
 ];
 
-const CATS = ["전체","에어드랍","AI 툴","밈코인","얍핑","트레이딩","시장 분석"];
+const CATEGORIES = ["전체","에어드랍","AI 툴","밈코인","얍핑","트레이딩","시장 분석"];
+const SORT_OPTIONS = ["최신순","이름","난이도","조회수"];
 
-/* ═══ Time parser ═══ */
-const parseAge = a => { if (!a) return 9999; const n = parseFloat(a); if (a.includes("시간")) return n / 24; if (a.includes("일")) return n; if (a.includes("주")) return n * 7; if (a.includes("개월")) return n * 30; if (a.includes("년")) return n * 365; return 9999; };
-const newest = p => { if (!p.vids?.length) return 9999; return Math.min(...p.vids.map(v => parseAge(v.a))); };
+/* ═════════════════════════════════════════════════════════════════════════════════ */
+/* MAIN APP COMPONENT */
+/* ═════════════════════════════════════════════════════════════════════════════════ */
 
 export default function App() {
-  const [cat, setCat] = useState("전체");
-  const [q, setQ] = useState("");
-  const [open, setOpen] = useState(null);
-  const [sort, setSort] = useState("default");
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
+  const [selectedCat, setSelectedCat] = useState("전체");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("최신순");
+  const [expanded, setExpanded] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const list = P
-    .filter(p => cat === "전체" || p.cat === cat)
-    .filter(p => !q || p.n.toLowerCase().includes(q.toLowerCase()) || p.sum.includes(q) || p.tg.some(t => t.includes(q)))
-    .sort((a, b) => {
-      if (sort === "name") return a.n.localeCompare(b.n);
-      if (sort === "diff") return ["쉬움","보통","어려움"].indexOf(a.diff) - ["쉬움","보통","어려움"].indexOf(b.diff);
-      if (sort === "views") { const g = p => { const v = p.vids?.[0]?.v || "0"; return v.includes("천") ? parseFloat(v) * 1000 : v.includes("만") ? parseFloat(v) * 10000 : parseFloat(v); }; return g(b) - g(a); }
-      return newest(a) - newest(b);
-    });
-  const isAir = p => p.cat === "에어드랍";
-  const tv = P.reduce((s, p) => s + (p.vids?.length || 0), 0);
-  const confirmed = P.filter(p => p.st === "확인됨");
+  const filtered = P.filter(p => {
+    const matchCat = selectedCat === "전체" || p.cat === selectedCat;
+    const matchSearch = p.n.toLowerCase().includes(searchTerm.toLowerCase()) || p.sum.includes(searchTerm);
+    return matchCat && matchSearch;
+  });
 
-  const Badge = ({st}) => {
-    if (st === "확인됨") return <span style={{fontSize:9,padding:"3px 10px",borderRadius:4,background:`linear-gradient(135deg,${GOLD},#DFC07A)`,color:"#1A1714",fontWeight:700,fontFamily:"'Sora'",letterSpacing:".02em",boxShadow:`0 2px 8px ${GOLD}40`}}>CONFIRMED</span>;
-    if (st === "예상") return <span style={{fontSize:9,padding:"3px 10px",borderRadius:4,border:"1px solid rgba(201,169,110,.3)",color:GOLD_DIM,fontWeight:600,fontFamily:"'Sora'"}}>EXPECTED</span>;
-    if (st === "진행중") return <span style={{fontSize:9,padding:"3px 10px",borderRadius:4,background:"rgba(255,255,255,.04)",color:"#5A554D",fontWeight:500,fontFamily:"'Sora'"}}>ACTIVE</span>;
-    return null;
-  };
+  const sorted = [...filtered].sort((a, b) => {
+    if (sortBy === "이름") return a.n.localeCompare(b.n, 'ko');
+    if (sortBy === "난이도") {
+      const diff = { "쉬움": 0, "보통": 1, "어려움": 2 };
+      return (diff[a.diff] || 0) - (diff[b.diff] || 0);
+    }
+    if (sortBy === "조회수") {
+      const getViews = (v) => parseInt(v?.replace(/[^0-9]/g, '') || 0) * (v?.includes('만') ? 10000 : 1);
+      return (getViews(b.vids[0]?.v) || 0) - (getViews(a.vids[0]?.v) || 0);
+    }
+    return 0;
+  });
+
+  const confirmed = sorted.filter(p => p.st === "확인됨");
 
   return (
-    <div style={{minHeight:"100vh",background:"#0C0B09",color:"#A09888",fontFamily:"'Sora','Noto Sans KR',sans-serif"}}>
-      <style>{`
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#0C0B09}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#0C0B09}::-webkit-scrollbar-thumb{background:#1F1D19;border-radius:2px}
-::selection{background:rgba(201,169,110,.2);color:#F0E8D8}
-@keyframes fadeUp{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes slideDown{0%{opacity:0;max-height:0;padding-top:0}100%{opacity:1;max-height:4000px;padding-top:20px}}
-@keyframes glow{0%,100%{opacity:.3}50%{opacity:.6}}
-@keyframes grain{0%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}20%{transform:translate(-15%,5%)}30%{transform:translate(7%,-25%)}40%{transform:translate(-5%,25%)}50%{transform:translate(-15%,10%)}60%{transform:translate(15%,0%)}70%{transform:translate(0%,15%)}80%{transform:translate(3%,35%)}90%{transform:translate(-10%,10%)}100%{transform:translate(0,0)}}
-.c{transition:all .28s cubic-bezier(.4,0,.2,1);position:relative}
-.c:hover{transform:translateY(-3px);border-color:rgba(201,169,110,.15)!important;box-shadow:0 12px 40px rgba(0,0,0,.4),0 0 0 1px rgba(201,169,110,.06)}
-.c:hover .c-glow{opacity:.08!important}
-.tab{position:relative;transition:color .2s;cursor:pointer;border:none;background:transparent;padding:10px 2px;font-family:'Sora','Noto Sans KR';font-size:12.5px;font-weight:500;color:#3D3830;letter-spacing:-.01em}
-.tab:hover{color:#8A7F72}
-.tab.on{color:${GOLD};font-weight:600}
-.tab.on::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,${GOLD},transparent);border-radius:1px}
-.sb{transition:all .15s;cursor:pointer;border:none;background:transparent;font-family:'Sora';font-size:10px;padding:5px 12px;border-radius:4px;color:#3D3830;letter-spacing:.02em}
-.sb:hover{color:#8A7F72}.sb.on{background:rgba(201,169,110,.08);color:${GOLD};font-weight:600}
-.vl{transition:all .15s;text-decoration:none;display:block;border-radius:6px;margin-bottom:2px}
-.vl:hover{background:rgba(201,169,110,.03)!important}
-.confirmed-card{position:relative;overflow:hidden;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1)}
-.confirmed-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(201,169,110,.15)}
-.cta{transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.cta:hover{opacity:.85}
-      `}</style>
-
-      {/* ═══ Film Grain Overlay ═══ */}
-      <div style={{position:"fixed",inset:0,zIndex:999,pointerEvents:"none",opacity:.035,mixBlendMode:"overlay"}}>
-        <svg width="100%" height="100%"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
-      </div>
-
-      {/* ═══ Ambient Glow Orbs ═══ */}
-      <div style={{position:"fixed",inset:0,zIndex:0,pointerEvents:"none",overflow:"hidden"}}>
-        <div style={{position:"absolute",width:"45vw",height:"45vw",maxWidth:600,maxHeight:600,left:"-12%",top:"-8%",borderRadius:"50%",background:`radial-gradient(circle,${GOLD}08 0%,transparent 60%)`,animation:"glow 8s ease-in-out infinite"}}/>
-        <div style={{position:"absolute",width:"35vw",height:"35vw",maxWidth:450,maxHeight:450,right:"-8%",bottom:"5%",borderRadius:"50%",background:"radial-gradient(circle,rgba(107,163,190,.05) 0%,transparent 60%)",animation:"glow 10s ease-in-out 3s infinite"}}/>
-        <div style={{position:"absolute",width:"25vw",height:"25vw",maxWidth:350,maxHeight:350,left:"40%",bottom:"-5%",borderRadius:"50%",background:"radial-gradient(circle,rgba(155,126,200,.04) 0%,transparent 60%)",animation:"glow 12s ease-in-out 5s infinite"}}/>
-      </div>
-
-      <div style={{position:"relative",zIndex:1}}>
-
-        {/* ═══ Header ═══ */}
-        <header style={{borderBottom:"1px solid rgba(255,255,255,.03)"}}>
-          <div style={{maxWidth:1120,margin:"0 auto",padding:"16px 36px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <div style={{display:"flex",alignItems:"center",gap:14}}>
-              <div style={{width:34,height:34,borderRadius:8,background:`linear-gradient(135deg,${GOLD},#DFC07A)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:`0 4px 16px ${GOLD}25`}}>
-                <span style={{fontFamily:"'Fraunces',serif",fontSize:17,fontWeight:800,color:"#0C0B09"}}>C</span>
-              </div>
-              <div>
-                <div style={{fontSize:14,fontWeight:700,letterSpacing:"-.02em",color:"#E8E0D0"}}>CryptoMage</div>
-                <div style={{fontSize:9,color:"#3D3830",fontWeight:500,letterSpacing:".04em",textTransform:"uppercase"}}>7.42K subscribers</div>
-              </div>
-            </div>
-            <a href={YT} target="_blank" rel="noopener noreferrer" style={{padding:"7px 20px",borderRadius:6,background:"rgba(201,169,110,.06)",border:`1px solid rgba(201,169,110,.12)`,color:GOLD_DIM,fontSize:12,fontWeight:500,textDecoration:"none",transition:"all .2s"}} onMouseOver={e => {e.target.style.background="rgba(201,169,110,.1)";e.target.style.color=GOLD}} onMouseOut={e => {e.target.style.background="rgba(201,169,110,.06)";e.target.style.color=GOLD_DIM}}>YouTube ↗</a>
-          </div>
-        </header>
-
-        {/* ═══ Hero ═══ */}
-        <section style={{maxWidth:1120,margin:"0 auto",padding:"72px 36px 56px"}}>
-          <div style={{animation:mounted?"fadeUp .7s ease both":"none"}}>
-            <p style={{fontFamily:"'Sora'",fontSize:11,fontWeight:600,color:GOLD,letterSpacing:".12em",textTransform:"uppercase",marginBottom:20}}>Dashboard 2026</p>
-            <h1 style={{fontFamily:"'Fraunces',serif",fontSize:"clamp(34px,5.5vw,58px)",fontWeight:800,lineHeight:1.05,letterSpacing:"-.035em",color:"#F0E8D8",marginBottom:16}}>
-              에어드랍 & 크립토<br/><span style={{background:`linear-gradient(135deg,${GOLD},#E8C97A)`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>가이드 대시보드</span>
-            </h1>
-            <p style={{fontSize:14.5,lineHeight:1.8,color:"#5A554D",maxWidth:460,fontFamily:"'Sora','Noto Sans KR'"}}>놓치면 후회할 프로젝트부터 밈코인, 얍핑, 프랍 트레이딩, AI 코딩 가이드까지 한 곳에서.</p>
-          </div>
-          <div style={{display:"flex",gap:0,marginTop:48,animation:mounted?"fadeUp .7s ease .15s both":"none",borderRadius:12,overflow:"hidden",border:"1px solid rgba(255,255,255,.04)",background:"rgba(255,255,255,.015)"}}>
-            {[{v:P.length,l:"총 콘텐츠",c:GOLD},{v:P.filter(isAir).length,l:"에어드랍",c:GOLD},{v:tv,l:"관련 영상",c:"#6BA3BE"},{v:6,l:"카테고리",c:"#9B7EC8"}].map((s,i)=>(
-              <div key={i} style={{flex:1,padding:"24px 28px",borderRight:i<3?"1px solid rgba(255,255,255,.03)":"none"}}>
-                <div style={{fontFamily:"'Fraunces',serif",fontSize:34,fontWeight:800,letterSpacing:"-.02em",color:s.c,lineHeight:1}}>{s.v}</div>
-                <div style={{fontSize:10,color:"#3D3830",marginTop:6,fontWeight:500,letterSpacing:".04em",textTransform:"uppercase"}}>{s.l}</div>
-              </div>
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+      <HeroSection />
+      {confirmed.length > 0 && <ConfirmedSection confirmed={confirmed} />}
+      <FilterBar selectedCat={selectedCat} setSelectedCat={setSelectedCat} searchTerm={searchTerm} setSearchTerm={setSearchTerm} sortBy={sortBy} setSortBy={setSortBy} />
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence mode="popLayout">
+            {sorted.map((project, i) => (
+              <ProjectCard key={project.id} project={project} isExpanded={expanded === project.id} onToggle={() => setExpanded(expanded === project.id ? null : project.id)} index={i} />
             ))}
+          </AnimatePresence>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+function Header({ mobileMenuOpen, setMobileMenuOpen }) {
+  return (
+    <motion.header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50" initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.3 }}>
+      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">C</div>
+          <div className="hidden sm:block">
+            <h1 className="text-lg font-bold text-white">CryptoMage</h1>
+            <p className="text-xs text-slate-400">7,700 구독자</p>
           </div>
-        </section>
+        </div>
+        <div className="flex items-center gap-3">
+          <a href="https://www.youtube.com/@cryptomage7700" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-red-600/50">
+            <span style={{fontSize:18}}>▶</span>YouTube
+          </a>
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="sm:hidden text-slate-300 hover:text-white">
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+      {mobileMenuOpen && (
+        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="sm:hidden border-t border-slate-800/50 bg-slate-900/50">
+          <div className="px-4 py-4 flex gap-3">
+            <a href="https://www.youtube.com/@cryptomage7700" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-all">
+              <span style={{fontSize:18}}>▶</span>YouTube
+            </a>
+          </div>
+        </motion.div>
+      )}
+    </motion.header>
+  );
+}
 
-        {/* ═══ Spotlight: Confirmed ═══ */}
-        {cat === "전체" && !q && confirmed.length > 0 && (
-          <section style={{maxWidth:1120,margin:"0 auto",padding:"0 36px 48px",animation:mounted?"fadeUp .7s ease .25s both":"none"}}>
-            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:20}}>
-              <div style={{width:6,height:6,borderRadius:"50%",background:GOLD,boxShadow:`0 0 12px ${GOLD}60`}}/>
-              <span style={{fontFamily:"'Sora'",fontSize:11,fontWeight:600,color:GOLD,letterSpacing:".1em",textTransform:"uppercase"}}>Confirmed</span>
-              <div style={{flex:1,height:1,background:`linear-gradient(90deg,rgba(201,169,110,.15),transparent)`}}/>
+function HeroSection() {
+  const stats = [
+    { label: "프로젝트", value: 70 },
+    { label: "영상", value: 156 },
+    { label: "구독자", value: 7700 },
+  ];
+
+  return (
+    <motion.section className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-transparent to-emerald-600/10 opacity-50" />
+      <div className="relative max-w-4xl mx-auto text-center">
+        <motion.h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
+          에어드랍 & 크립토 가이드
+        </motion.h2>
+        <motion.p className="text-lg sm:text-xl text-slate-300 mb-12" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }}>
+          에어드랍, 자동매매 봇, 밈코인, AI 툴 — 직접 해본 것만 정리합니다.
+        </motion.p>
+        <motion.div className="grid grid-cols-3 gap-4 sm:gap-8 mb-8" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }}>
+          {stats.map((stat, i) => (
+            <div key={i} className="bg-slate-800/50 backdrop-blur border border-slate-700/50 rounded-xl p-4 sm:p-6 hover:border-slate-600/50 transition-all duration-300">
+              <div className="text-2xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-emerald-400 mb-2">
+                <CountUp target={stat.value} />
+                {stat.label === "구독자" ? "K+" : "+"}
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400">{stat.label}</p>
             </div>
-            <div style={{display:"grid",gridTemplateColumns:`repeat(${Math.min(confirmed.length,3)},1fr)`,gap:16}}>
-              {confirmed.map(p => {const hv = p.vids?.length > 0;
-                return (
-                  <div key={p.id} className="confirmed-card" onClick={() => setOpen(open === p.id ? null : p.id)}
-                    style={{borderRadius:14,background:"linear-gradient(145deg,#1A1714 0%,#15130F 100%)",border:`1px solid rgba(201,169,110,.12)`,overflow:"hidden"}}>
-                    <div style={{position:"absolute",inset:0,background:`radial-gradient(ellipse at top left,${GOLD}08,transparent 60%)`,pointerEvents:"none"}}/>
-                    <div style={{position:"relative",padding:"26px 24px 22px"}}>
-                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:18}}>
-                        <Badge st="확인됨"/>
-                        {hv && <span style={{fontSize:10,color:"#5A554D"}}>{p.vids.length}편</span>}
-                      </div>
-                      <h3 style={{fontFamily:"'Fraunces',serif",fontSize:26,fontWeight:800,lineHeight:1.08,color:"#F0E8D8",marginBottom:8}}>{p.n}</h3>
-                      <p style={{fontSize:12.5,color:"#6B6358",lineHeight:1.65,marginBottom:16,fontFamily:"'Sora','Noto Sans KR'"}}>{p.sum}</p>
-                      <div style={{display:"flex",gap:6}}>
-                        {p.rw && <span style={{fontSize:10,padding:"4px 12px",borderRadius:4,background:"rgba(201,169,110,.06)",border:"1px solid rgba(201,169,110,.1)",color:GOLD_DIM,fontWeight:500}}>{p.rw}</span>}
-                        <span style={{fontSize:10,padding:"4px 12px",borderRadius:4,background:"rgba(255,255,255,.03)",color:"#5A554D",fontWeight:500}}>{p.ch}</span>
-                      </div>
-                    </div>
-                    {open === p.id && (
-                      <div onClick={e => e.stopPropagation()} style={{animation:"slideDown .3s ease both",borderTop:"1px solid rgba(201,169,110,.08)",padding:"0 24px 22px"}}>
-                        {p.fund && <div style={{marginBottom:14}}><div style={{fontSize:9,fontWeight:600,letterSpacing:".08em",color:"#3D3830",marginBottom:5,textTransform:"uppercase"}}>Investors</div><div style={{fontSize:13,color:"#8A7F72",fontFamily:"'Sora','Noto Sans KR'"}}>{p.fund}</div></div>}
-                        <div style={{marginBottom:14}}><div style={{fontSize:9,fontWeight:600,letterSpacing:".08em",color:"#3D3830",marginBottom:8,textTransform:"uppercase"}}>Steps</div>
-                          {p.steps.map((s,i) => <div key={i} style={{fontSize:12.5,padding:"5px 0",color:"#6B6358",fontFamily:"'Sora','Noto Sans KR'"}}><span style={{color:`${GOLD}50`,marginRight:10,fontWeight:600,fontSize:10}}>{String(i+1).padStart(2,"0")}</span>{s}</div>)}</div>
-                        {hv && <div><div style={{fontSize:9,fontWeight:600,letterSpacing:".08em",color:"#3D3830",marginBottom:8,textTransform:"uppercase"}}>Videos</div>
-                          {p.vids.map((v,i) => <a key={i} href={yt(v.t)} target="_blank" rel="noopener noreferrer" className="vl" style={{display:"block",padding:"8px 0",borderTop:i?"1px solid rgba(255,255,255,.03)":"none",textDecoration:"none",color:"#8A7F72",fontSize:12}}>{v.t} <span style={{color:"#3D3830",fontSize:10}}>· {v.v}</span></a>)}</div>}
-                        <div style={{display:"flex",gap:8,marginTop:14}}>
-                          {p.lk?.o && <a href={p.lk.o} target="_blank" rel="noopener noreferrer" className="cta" style={{padding:"8px 20px",borderRadius:6,background:`linear-gradient(135deg,${GOLD},#DFC07A)`,color:"#0C0B09",fontSize:12,fontWeight:700}}>사이트 열기 ↗</a>}
-                        </div>
-                      </div>
-                    )}
+          ))}
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+}
+
+function CountUp({ target }) {
+  const [count, setCount] = React.useState(0);
+  React.useEffect(() => {
+    let start = 0;
+    const duration = 1.5;
+    const increment = target / (duration * 60);
+    const interval = setInterval(() => {
+      start += increment;
+      setCount(Math.floor(start));
+      if (start >= target) {
+        setCount(target);
+        clearInterval(interval);
+      }
+    }, 1000 / 60);
+    return () => clearInterval(interval);
+  }, [target]);
+  return <>{count}</>;
+}
+
+function ConfirmedSection({ confirmed }) {
+  return (
+    <motion.section className="py-12 px-4 sm:px-6 lg:px-8 bg-emerald-600/5 border-y border-emerald-600/20" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
+      <div className="max-w-7xl mx-auto">
+        <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
+          <div className="w-1 h-8 bg-emerald-500 rounded-full" />확정 에어드랍
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {confirmed.slice(0, 2).map(p => (
+            <motion.div key={p.id} className="bg-gradient-to-br from-emerald-600/20 to-emerald-600/5 border border-emerald-600/30 rounded-2xl p-6 hover:border-emerald-500/50 transition-all duration-300 group" whileHover={{ y: -4 }}>
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <h4 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">{p.n}</h4>
+                  <p className="text-sm text-slate-400 mt-1">{p.fund}</p>
+                </div>
+                <span className="px-3 py-1 bg-emerald-500/30 text-emerald-300 text-xs font-bold rounded-lg border border-emerald-500/50">확정</span>
+              </div>
+              <p className="text-slate-300 text-sm mb-4">{p.sum}</p>
+              {p.lk?.o && (
+                <a href={p.lk.o} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm">
+                  웹사이트 방문<ExternalLink size={14} />
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+function FilterBar({ selectedCat, setSelectedCat, searchTerm, setSearchTerm, sortBy, setSortBy }) {
+  return (
+    <motion.div className="sticky top-[72px] z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50 py-4 px-4 sm:px-6 lg:px-8" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
+      <div className="max-w-7xl mx-auto space-y-4">
+        <div className="relative">
+          <Search className="absolute left-3 top-3 text-slate-400" size={20} />
+          <input type="text" placeholder="프로젝트 검색..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="w-full bg-slate-800/50 border border-slate-700/50 rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/30 transition-all" />
+        </div>
+        <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+          <div className="flex-1 overflow-x-auto pb-2 sm:pb-0">
+            <div className="flex gap-2 min-w-max sm:min-w-0 sm:flex-wrap">
+              {CATEGORIES.map(cat => (
+                <motion.button key={cat} onClick={() => setSelectedCat(cat)} className={`px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all duration-200 ${selectedCat === cat ? "bg-purple-600 text-white ring-2 ring-purple-400/30" : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 border border-slate-700/50"}`} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <div className="flex items-center gap-2">
+                    {cat !== "전체" && <div className={`w-2 h-2 rounded-full ${CAT_COLORS[cat]}`} />}
+                    {cat}
                   </div>
-                );
-              })}
-            </div>
-          </section>
-        )}
-
-        {/* ═══ Controls ═══ */}
-        <div style={{position:"sticky",top:0,zIndex:100,background:"rgba(12,11,9,.88)",backdropFilter:"saturate(200%) blur(16px)",borderBottom:"1px solid rgba(255,255,255,.03)",borderTop:"1px solid rgba(255,255,255,.02)"}}>
-          <div style={{maxWidth:1120,margin:"0 auto",padding:"0 36px",display:"flex",alignItems:"center",gap:12}}>
-            <div style={{display:"flex",gap:18,flex:1,overflowX:"auto"}}>
-              {CATS.map(c => {
-                const cnt = c === "전체" ? P.length : P.filter(p => p.cat === c).length;
-                const sel = cat === c;
-                const cc = c === "전체" ? GOLD : CAT_COLORS[c];
-                return (
-                  <button key={c} className={`tab${sel?" on":""}`} onClick={() => setCat(c)} style={sel ? {color: cc} : {}}>
-                    {sel && <span style={{display:"inline-block",width:5,height:5,borderRadius:"50%",background:cc,marginRight:6,boxShadow:`0 0 6px ${cc}40`}}/>}
-                    {c}
-                    <span style={{fontSize:9,marginLeft:4,opacity:.4}}>{cnt}</span>
-                  </button>
-                );
-              })}
-            </div>
-            <div style={{position:"relative"}}>
-              <svg style={{position:"absolute",left:10,top:"50%",transform:"translateY(-50%)",opacity:.3}} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#A09888" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              <input placeholder="검색..." value={q} onChange={e => setQ(e.target.value)} style={{padding:"7px 12px 7px 30px",background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.04)",borderRadius:6,color:"#A09888",fontSize:12,width:160,fontFamily:"'Sora','Noto Sans KR'",outline:"none",transition:"border .2s"}} onFocus={e => e.target.style.borderColor=`${GOLD}30`} onBlur={e => e.target.style.borderColor="rgba(255,255,255,.04)"}/>
-            </div>
-            <div style={{display:"flex",gap:2}}>
-              {[["default","최신순"],["name","이름"],["diff","난이도"],["views","조회"]].map(([k,l]) => (
-                <button key={k} className={`sb${sort===k?" on":""}`} onClick={() => setSort(k)}>{l}</button>
+                </motion.button>
               ))}
             </div>
           </div>
+          <div className="flex gap-2">
+            {SORT_OPTIONS.map(opt => (
+              <button key={opt} onClick={() => setSortBy(opt)} className={`px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${sortBy === opt ? "bg-emerald-600/30 text-emerald-300 border border-emerald-500/50" : "bg-slate-800/50 text-slate-400 border border-slate-700/50 hover:border-slate-600/50"}`}>
+                {opt}
+              </button>
+            ))}
+          </div>
         </div>
+      </div>
+    </motion.div>
+  );
+}
 
-        {/* ═══ Grid ═══ */}
-        <div style={{maxWidth:1120,margin:"0 auto",padding:"28px 36px 100px"}}>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:10}}>
-            {list.filter(p => !(cat === "전체" && !q && p.st === "확인됨")).map((p, idx) => {
-              const isO = open === p.id;
-              const hv = p.vids?.length > 0;
-              const air = isAir(p);
-              const cc = CAT_COLORS[p.cat] || GOLD;
-              const ds = DIFF_STYLE[p.diff] || DIFF_STYLE["보통"];
-              return (
-                <div key={p.id} className="c" onClick={() => setOpen(isO ? null : p.id)}
-                  style={{borderRadius:12,border:"1px solid rgba(255,255,255,.04)",background:"rgba(255,255,255,.015)",cursor:"pointer",overflow:"hidden",animation:mounted?`fadeUp .4s ease ${Math.min(idx*.02,.55)}s both`:"none",...(isO?{gridColumn:"1/-1",background:"rgba(255,255,255,.02)",borderColor:"rgba(201,169,110,.1)"}:{})}}>
-                  {/* Category glow on hover */}
-                  <div className="c-glow" style={{position:"absolute",inset:0,background:`radial-gradient(ellipse at top left,${cc}20,transparent 55%)`,opacity:0,transition:"opacity .3s",pointerEvents:"none"}}/>
-                  <div style={{display:"flex",position:"relative"}}>
-                    <div style={{width:3,background:`linear-gradient(180deg,${cc},transparent)`,opacity:isO?1:.25,transition:"opacity .3s"}}/>
-                    <div style={{flex:1,padding:"18px 22px"}}>
-                      <div style={{display:"flex",alignItems:"flex-start",gap:12,marginBottom:12}}>
-                        {/* Logo */}
-                        <div style={{width:40,height:40,borderRadius:10,flexShrink:0,background:`${cc}0A`,border:`1px solid ${cc}15`,display:"flex",alignItems:"center",justifyContent:"center",transition:"all .3s",...(isO?{background:`${cc}12`,borderColor:`${cc}25`,boxShadow:`0 4px 16px ${cc}15`}:{})}}>
-                          <span style={{fontFamily:"'Fraunces',serif",fontSize:18,fontWeight:700,color:cc}}>{p.n?.charAt(0)}</span>
-                        </div>
-                        <div style={{flex:1,minWidth:0}}>
-                          <div style={{display:"flex",alignItems:"center",gap:7,flexWrap:"wrap"}}>
-                            <h3 style={{fontSize:14.5,fontWeight:700,color:"#E8E0D0",letterSpacing:"-.015em"}}>{p.n}</h3>
-                            <Badge st={p.st}/>
-                            {hv && <span style={{fontSize:9,color:"#3D3830",fontFamily:"'Sora'"}}>{p.vids.length}편</span>}
-                          </div>
-                          <div style={{fontSize:10,color:"#3D3830",marginTop:3,fontWeight:400}}>{[p.ch,p.cat].filter(Boolean).join(" · ")}</div>
-                        </div>
-                        <svg style={{width:14,height:14,color:"#3D3830",transition:"all .25s cubic-bezier(.4,0,.2,1)",transform:isO?"rotate(180deg)":"",flexShrink:0,marginTop:4}} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6"/></svg>
-                      </div>
-                      <div style={{display:"flex",gap:6,marginBottom:10}}>
-                        <span style={{fontSize:10,padding:"3px 10px",borderRadius:4,background:ds.bg,color:ds.color,border:`1px solid ${ds.border}`,fontWeight:600,fontFamily:"'Sora'"}}>{p.diff}</span>
-                        {p.rw && <span style={{fontSize:10,padding:"3px 10px",borderRadius:4,background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.04)",color:"#5A554D",fontWeight:500}}>{p.rw}</span>}
-                      </div>
-                      <p style={{fontSize:13,lineHeight:1.65,color:"#6B6358",fontFamily:"'Sora','Noto Sans KR'"}}>{p.sum}</p>
-
-                      {/* ═══ Expanded ═══ */}
-                      {isO && (
-                        <div onClick={e => e.stopPropagation()} style={{animation:"slideDown .3s ease both",borderTop:"1px solid rgba(255,255,255,.04)",marginTop:18}}>
-                          {hv && (
-                            <div style={{marginBottom:20}}>
-                              <div style={{fontSize:9,fontWeight:600,color:"#3D3830",letterSpacing:".08em",marginBottom:10,textTransform:"uppercase"}}>Videos</div>
-                              {p.vids.map((v, i) => (
-                                <a key={i} href={yt(v.t)} target="_blank" rel="noopener noreferrer" className="vl" style={{padding:"12px 14px",border:"1px solid rgba(255,255,255,.03)",marginBottom:4}}>
-                                  <div style={{display:"flex",alignItems:"center",gap:12}}>
-                                    <div style={{width:34,height:34,borderRadius:8,background:`${cc}08`,border:`1px solid ${cc}12`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
-                                      <svg width="10" height="10" viewBox="0 0 24 24" fill={cc}><path d="M8 5v14l11-7z"/></svg>
-                                    </div>
-                                    <div style={{flex:1,minWidth:0}}>
-                                      <div style={{fontSize:12.5,color:"#A09888",fontWeight:500,fontFamily:"'Sora','Noto Sans KR'",marginBottom:2}}>{v.t}</div>
-                                      <div style={{fontSize:10,color:"#3D3830"}}>{v.v} · {v.a}</div>
-                                    </div>
-                                    <span style={{color:"#3D3830",fontSize:13,transition:"color .15s"}}>↗</span>
-                                  </div>
-                                </a>
-                              ))}
-                            </div>
-                          )}
-                          {air && p.fund && (
-                            <div style={{padding:16,borderRadius:8,background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.04)",marginBottom:16}}>
-                              <div style={{fontSize:9,fontWeight:600,color:"#3D3830",letterSpacing:".08em",marginBottom:5,textTransform:"uppercase"}}>Investors</div>
-                              <div style={{fontSize:13,color:"#8A7F72",fontFamily:"'Sora','Noto Sans KR'"}}>{p.fund}</div>
-                            </div>
-                          )}
-                          <div style={{marginBottom:16}}>
-                            <div style={{fontSize:9,fontWeight:600,color:"#3D3830",letterSpacing:".08em",marginBottom:10,textTransform:"uppercase"}}>Steps</div>
-                            {p.steps.map((s, i) => (
-                              <div key={i} style={{display:"flex",gap:12,padding:"6px 10px",borderRadius:4,transition:"background .15s"}} onMouseOver={e=>e.currentTarget.style.background="rgba(255,255,255,.015)"} onMouseOut={e=>e.currentTarget.style.background="transparent"}>
-                                <span style={{fontSize:10,fontWeight:700,color:`${cc}45`,fontFamily:"'Sora'",width:18,textAlign:"right",flexShrink:0,lineHeight:"20px"}}>{String(i + 1).padStart(2, "0")}</span>
-                                <span style={{fontSize:12.5,color:"#6B6358",fontFamily:"'Sora','Noto Sans KR'",lineHeight:"20px"}}>{s}</span>
-                              </div>
-                            ))}
-                          </div>
-                          <div style={{display:"flex",gap:5,flexWrap:"wrap",marginBottom:16}}>
-                            {p.tg.map(t => <span key={t} style={{fontSize:10,padding:"3px 10px",borderRadius:4,background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.04)",color:"#5A554D",fontFamily:"'Sora'"}}>#{t}</span>)}
-                          </div>
-                          <div style={{display:"flex",gap:8}}>
-                            {p.lk?.o && <a href={p.lk.o} target="_blank" rel="noopener noreferrer" className="cta" style={{padding:"9px 22px",borderRadius:6,background:`linear-gradient(135deg,${GOLD},#DFC07A)`,color:"#0C0B09",fontSize:12,fontWeight:700}}>사이트 열기 ↗</a>}
-                            {hv && <a href={YT+"/videos"} target="_blank" rel="noopener noreferrer" className="cta" style={{padding:"9px 22px",borderRadius:6,border:"1px solid rgba(255,255,255,.06)",color:"#6B6358",fontSize:12,fontWeight:500}}>채널 ↗</a>}
+function ProjectCard({ project, isExpanded, onToggle, index }) {
+  return (
+    <motion.div layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} transition={{ delay: index * 0.05 }} className="h-full">
+      <motion.div className="h-full bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl overflow-hidden cursor-pointer group hover:border-slate-600/50 transition-all duration-300 flex flex-col" onClick={onToggle} whileHover={{ y: -4, borderColor: "rgba(148, 113, 233, 0.3)" }}>
+        <div className="p-5 sm:p-6 border-b border-slate-700/30 group-hover:bg-slate-700/20 transition-colors">
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <div className="flex-1">
+              <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-purple-300 transition-colors line-clamp-2">{project.n}</h3>
+            </div>
+            <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} className="flex-shrink-0 text-slate-400 group-hover:text-slate-300">
+              <ChevronDown size={20} />
+            </motion.div>
+          </div>
+          <div className="flex flex-wrap gap-2 mb-3">
+            {project.st && <span className={`text-xs px-2 py-1 rounded-lg font-bold ${STATUS_COLORS[project.st] || "bg-slate-700/50 text-slate-300"}`}>{project.st}</span>}
+            {project.ch && <span className="text-xs px-2 py-1 bg-slate-700/50 text-slate-300 rounded-lg font-medium">{project.ch}</span>}
+            {project.diff && <span className={`text-xs px-2 py-1 rounded-lg font-bold ${DIFFICULTY_COLORS[project.diff]}`}>{project.diff}</span>}
+          </div>
+          <p className="text-sm text-slate-400 line-clamp-2 group-hover:text-slate-300 transition-colors">{project.sum}</p>
+        </div>
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
+              <div className="p-5 sm:p-6 space-y-5 bg-slate-900/50">
+                {project.steps && project.steps.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-300 mb-3 flex items-center gap-2">
+                      <div className="w-1 h-4 bg-purple-500 rounded-full" />진행 단계
+                    </h4>
+                    <ol className="space-y-2">
+                      {project.steps.map((step, i) => (
+                        <li key={i} className="flex gap-3 text-xs sm:text-sm text-slate-400">
+                          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600/30 border border-purple-500/50 flex items-center justify-center text-xs font-bold text-purple-300">
+                            {i + 1}
+                          </span>
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
+                {project.vids && project.vids.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-300 mb-3 flex items-center gap-2">
+                      <Video size={16} className="text-emerald-400" />관련 영상
+                    </h4>
+                    <div className="space-y-2 max-h-48 overflow-y-auto">
+                      {project.vids.map((vid, i) => (
+                        <div key={i} className="bg-slate-800/50 rounded-lg p-3 border border-slate-700/30 hover:border-slate-600/50 transition-colors">
+                          <p className="text-xs sm:text-sm text-slate-300 font-medium line-clamp-2 mb-1">{vid.t}</p>
+                          <div className="flex items-center justify-between text-xs text-slate-500">
+                            <span className="flex items-center gap-1">
+                              <Play size={12} />{vid.v}
+                            </span>
+                            <span>{vid.a}</span>
                           </div>
                         </div>
-                      )}
+                      ))}
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-          {!list.length && <div style={{textAlign:"center",padding:"100px 20px",color:"#2A2520",fontFamily:"'Sora'",fontSize:14}}>검색 결과가 없습니다</div>}
+                )}
+                {project.tg && project.tg.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.tg.map((tag, i) => (
+                      <span key={i} className="text-xs px-2 py-1 bg-slate-700/50 text-slate-300 rounded-lg">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                {project.lk?.o && (
+                  <a href={project.lk.o} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex items-center justify-center gap-2 w-full px-4 py-2 bg-purple-600/30 hover:bg-purple-600/50 text-purple-300 border border-purple-500/50 rounded-lg font-medium text-sm transition-all duration-200">
+                    공식 웹사이트<ExternalLink size={14} />
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function Footer() {
+  return (
+    <motion.footer className="mt-16 border-t border-slate-800/50 bg-slate-950/80 backdrop-blur-md py-12 px-4 sm:px-6 lg:px-8" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
+      <div className="max-w-7xl mx-auto text-center space-y-6">
+        <div className="flex items-center justify-center gap-2 text-slate-400">
+          <p>크립토메이지와 함께 에어드랍 정복하기</p>
         </div>
-
-        {/* ═══ Footer ═══ */}
-        <footer style={{borderTop:"1px solid rgba(255,255,255,.03)",padding:"28px 36px"}}>
-          <div style={{maxWidth:1120,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <div style={{display:"flex",alignItems:"center",gap:10}}>
-              <div style={{width:5,height:5,borderRadius:"50%",background:GOLD,opacity:.3}}/>
-              <span style={{fontSize:10,color:"#2A2520"}}>CryptoMage · 정보 제공 목적이며 투자 조언이 아닙니다 · DYOR</span>
-            </div>
-            <span style={{fontSize:10,color:"#1A1714"}}>© 2026</span>
-          </div>
-        </footer>
-
+        <a href="https://www.youtube.com/@cryptomage7700" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-600/50 rounded-lg font-medium transition-all duration-200">
+          <span style={{fontSize:18}}>▶</span>YouTube 채널 구독하기
+        </a>
+        <p className="text-xs text-slate-500 mt-8">© 2026 CryptoMage. 직접 해본 것만 정리합니다.</p>
       </div>
-    </div>
+    </motion.footer>
   );
 }
