@@ -60,7 +60,7 @@ const P = [
   {id:3,n:"Aster",pick:true,cat:"PerpDEX",ch:"Aster L1",logo:LL("aster-bridge.jpg"),st:"진행중",rw:"대형",fund:"YZi Labs (CZ)",dist:"53.5%",tge:"진행중",hot:true,
     desc:"CZ 어드바이저. 1001x 레버리지, 히든오더, 크로스체인 차세대 Perp DEX.",
     insight:"역대 최대 53.5% 커뮤니티 에어드랍으로 화제. Stage 6 진행중이며 일일 거래량 $787M ATH 기록. 전 바이낸스 직원 다수 합류. 자체 L1 테스트넷 가동 중이며 1001x 레버리지, 히든오더(대규모 주문 숨김), 크로스체인 결제 등 혁신적 기능 탑재. YZi Labs(구 Binance Labs) 직접 지원으로 바이낸스 상장 가능성도 높게 점쳐짐.",
-    strat:"Stage 6 파밍 + 거래 볼륨 + 스테이킹.", ref:"https://aster.trade",yt:[]},
+    strat:"Stage 6 파밍 + 거래 볼륨 + 스테이킹.", ref:"https://www.asterdex.com/en/referral/e70505",yt:[]},
 
   {id:4,n:"Genius",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:TW("1937894252031148032/PRE0DE0Z_400x400.jpg"),st:"진행중",rw:"대형",fund:"YZi Labs (CZ)",dist:"미정",tge:"Apr 12, 2026",hot:true,
     desc:"YZi Labs 8자리 투자 + CZ 어드바이저. 올인원 트레이딩 터미널.",
@@ -70,7 +70,7 @@ const P = [
   {id:5,n:"Variational",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:LL("variational.jpg"),st:"진행중",rw:"대형",fund:"$11.8M (Bain, Coinbase, Peak XV)",dist:"50%",tge:"Q3-Q4 2026",
     desc:"500+ 페어 Perp DEX. 커뮤니티 50% 배분. 0% 수수료 + 손실 환급.",
     insight:"Bain Capital Crypto + Coinbase Ventures + Peak XV(구 세쿼이아 인디아) $11.8M 투자. 커뮤니티 50% 배분은 Perp DEX 역대 최고 수준. 무수수료(0%)에 스프레드가 Binance VIP Tier 4 수준. 손실 환급 프로그램 운영. $VAR 토큰 공식 발표. TVL $125.8M. Omni Points 주간 ~150K 배분 중이며 포인트 획득 난이도가 매주 5배씩 증가하므로 빠른 진입이 유리. 포인트당 $50+ 추정(커뮤니티 분석). 모든 데이터 API로 검증 가능하여 투명성 높음.",
-    strat:"양방 OI 유지 + 레퍼럴 + 알트코인 가중치 활용 + 빠른 Omni Points 확보.", ref:"https://variational.io",
+    strat:"양방 OI 유지 + 레퍼럴 + 알트코인 가중치 활용 + 빠른 Omni Points 확보.", ref:"https://omni.variational.io/?ref=OMNICOINMAGE",
     yt:[{t:"Variational 양방 OI 유지",u:"https://youtu.be/AfH8wppr0xc"}]},
 
   {id:6,n:"Extended",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:LL("extended.jpg"),st:"진행중",rw:"대형",fund:"$6.5M",dist:"30% 확정",tge:"Q2 2026",
@@ -82,7 +82,7 @@ const P = [
   {id:7,n:"Glider",pick:true,cat:"DeFi",ch:"Multi-chain",logo:TW("2008111141957021696/fUFRZjS3_400x400.jpg"),st:"진행중",rw:"대형",fund:"a16z, Coinbase",dist:"미정",tge:"미정",
     desc:"AI DeFi 수익 최적화. a16z + Coinbase + Uniswap 삼중 백업.",
     insight:"a16z + Coinbase Ventures + Uniswap Labs 삼대 메이저 동시 투자는 극히 이례적. AI가 DeFi 포트폴리오를 자동 리밸런싱하고 수익률 최적화. 예치만 하면 AI가 최적 전략 실행하는 구조라 난이도 최하. DeFi 초보자도 접근 가능한 쉬운 난이도 대비 대형 VC급 보상 기대.",
-    strat:"예치 + 포인트 축적. AI가 알아서 관리.", ref:"https://glider.fi",yt:[]},
+    strat:"예치 + 포인트 축적. AI가 알아서 관리.", ref:"https://glider.fi/r/0d172cd0",yt:[]},
 
   {id:8,n:"Base",pick:true,cat:"L2",ch:"Base",logo:CL("base"),st:"예상",rw:"대형",fund:"Coinbase ($500M+)",dist:"20-25%",tge:"Q2-Q4 2026",
     desc:"Coinbase L2. 토큰 탐색 공식 확인. JPMorgan 추정 $12-34B.",
@@ -104,7 +104,7 @@ const P = [
   {id:22,n:"Silhouette",cat:"PerpDEX",ch:"HyperEVM",logo:LL("silhouette-naked.jpg"),st:"진행중",rw:"중형~대형",fund:"$3M",dist:"미정",tge:"미정",
     desc:"HyperEVM 최초 프라이버시 Perp DEX. Shielded Trading.",
     insight:"2026년 3대 내러티브 프라이버시를 HyperEVM 위에서 최초 구현. 극초기 선점 효과 극대화 가능. USDC 브릿지 후 Shielded 거래로 MEV(샌드위치 공격)를 완전히 방어하여 대규모 트레이더에게 특히 유리. $3M 시드 완료로 개발 자금 확보. Hyperliquid 생태계 최초 프라이버시 솔루션이라 희소성 프리미엄 기대.",
-    strat:"USDC 브릿지 → Shielded 거래 + 극초기 포인트.", ref:"https://silhouette.fi",
+    strat:"USDC 브릿지 → Shielded 거래 + 극초기 포인트.", ref:"https://app.silhouette.exchange/refer/Z208T",
     yt:[{t:"실루엣 Shielded Trading",u:"https://www.youtube.com/watch?v=UTWmrmTF9Wg"}]},
 
   {id:23,n:"MegaETH",cat:"L2",ch:"MegaETH",logo:CL("megaeth"),st:"예상",rw:"대형",fund:"$107M",dist:"5%+",tge:"Q2 2026",
@@ -115,7 +115,7 @@ const P = [
   {id:24,n:"Reya",cat:"PerpDEX",ch:"Reya Chain (자체 L2)",logo:LL("reya-perps.jpg"),st:"진행중",rw:"중형~대형",fund:"$19M (Framework, Coinbase)",dist:"45%",tge:"미정",
     desc:"모듈러 PerpDEX 체인. 45% 커뮤니티. Voltz Protocol 팀 피벗.",
     insight:"Framework Ventures + Coinbase Ventures $19M 투자. 커뮤니티 45%는 PerpDEX 중 상위권(Variational 50%, Aster 53.5% 다음). Voltz Protocol(금리 스왑) 팀이 Perp DEX로 전환한 프로젝트로 기술력 검증됨. 자체 L2(Reya Chain) 운영으로 밀리초 실행 속도 + 가스비 제로 환경. CoinList 토큰 세일 완료($0.01875/token). 자체 체인이라 주문 실행 속도와 가스비 최적화에 직접 통제권 확보.",
-    strat:"Perp 거래 포인트 + 유동성 제공 + 레퍼럴.", ref:"https://reya.network",yt:[]},
+    strat:"Perp 거래 포인트 + 유동성 제공 + 레퍼럴.", ref:"https://app.reya.xyz/trade?referredBy=8src0ch8",yt:[]},
 
   {id:25,n:"Pacifica",cat:"PerpDEX",ch:"Solana",logo:LL("pacifica.jpg"),st:"진행중",rw:"중형~대형",fund:"Self-funded",dist:"미정",tge:"미정",
     desc:"FTX 전 COO 설립. VC 없이 자체 펀딩 (하이퍼리퀴드 모델).",
@@ -138,13 +138,13 @@ const P = [
   {id:50,n:"StandX",cat:"PerpDEX",ch:"Multi",logo:LL("standx-perps.jpg"),rw:"중형",st:"진행중",
     desc:"바이낸스 선물 창립팀 + 골드만삭스 출신 Perp DEX.",
     insight:"CEO AG가 바이낸스 선물 창립 멤버 + 골드만삭스 출신 팀으로 구성된 엘리트 프로젝트. DUSD 수익형 스테이블코인을 마진으로 사용하여 보유 기간에 비례해 포인트가 가산되는 독특한 구조. 스테이블 예치만으로도 파밍이 가능해 시장 변동 리스크 최소화. 바이낸스 선물 인프라를 만든 팀이라 거래 엔진 성능이 검증됨.",
-    strat:"DUSD 전환 + 예치 + Perp 거래.", ref:"https://standx.io",
+    strat:"DUSD 전환 + 예치 + Perp 거래.", ref:"https://standx.com/referral?code=coinmage",
     yt:[{t:"StandX",u:"https://youtu.be/x7m7B5uJewE"}]},
 
   {id:51,n:"Theo",cat:"DeFi",ch:"HyperEVM",logo:LL("theo-straddle-vaults.jpg"),rw:"중형",st:"진행중",fund:"$20M",
     desc:"$20M 펀딩 델타뉴트럴 볼트 + thGOLD 토큰화 금.",
     insight:"$20M 대형 펀딩 완료로 자금력 검증. 델타뉴트럴 전략으로 시장 방향과 무관하게 안정 수익을 제공하는 볼트 운영. thGOLD(토큰화 금) 출시로 RWA 시장 진입. S2 포인트 매주 금요일 배포 중이며 최소 $1,000 이상 예치 시 효율적. HyperEVM 핵심 DeFi 프로토콜로 HYPE 생태계 성장과 직결.",
-    strat:"스테이블/ETH 예치 + S2 포인트.", ref:"https://theo.xyz",
+    strat:"스테이블/ETH 예치 + S2 포인트.", ref:"https://app.theo.xyz/invite?invite=3830e057-064a-4406-9b50-140c6a92667c",
     yt:[{t:"THEO 예치작업",u:"https://youtu.be/spjWF2_NaK0"}]},
 
   {id:52,n:"Felix",cat:"DeFi",ch:"HyperEVM",logo:LL("felix-cdp.jpg"),rw:"중형~대형",st:"진행중",
@@ -161,18 +161,13 @@ const P = [
   {id:57,n:"xStocks",cat:"DeFi",ch:"Multi",logo:LL("xstocks.jpg"),rw:"중형",st:"진행중",
     desc:"온체인 주식 토큰 거래. Equity Perps.",
     insight:"TradFi 주식을 온체인 토큰으로 변환하여 24시간 거래 가능하게 하는 프로젝트. Extended와 함께 2026 Equity Perps 핵심 프로젝트. 미국 주식시장 $50T+ 규모의 온체인 유입이 시작되면 폭발적 성장 잠재력. 규제 환경이 명확해지는 2026년이 핵심 전환점.",
-    strat:"주식 토큰 거래 + 포인트.", ref:"https://xstocks.io",
+    strat:"주식 토큰 거래 + 포인트.", ref:"https://defi.xstocks.fi/points?ref=M7PED292",
     yt:[{t:"xStocks 에어드랍",u:"https://www.youtube.com/watch?v=E-fHENsX-Gk"}]},
-
-  {id:58,n:"EVEDEX",cat:"PerpDEX",ch:"Multi",logo:LL("evedex.jpg"),rw:"중형",st:"진행중",
-    desc:"차세대 Perp DEX. 초대 기반 접근.",
-    insight:"초대 코드 기반 접근으로 초기 유저를 강력히 우대하는 구조. PerpDEX 시장에서 유저 퀄리티 중심 차별화 전략 채택. 초기 참여자에게 더 높은 배분 비율이 예상되며, 커뮤니티 규모보다 활동 깊이를 보상하는 모델. 멀티체인 지원으로 다양한 네트워크에서 거래 가능.",
-    strat:"초대 코드 가입 + 거래.", ref:"https://invite.evedex.com",yt:[]},
 
   {id:59,n:"Minara",cat:"AI",ch:"Multi",logo:LL("minara-ai-perps.jpg"),rw:"중형",st:"진행중",fund:"Circle Ventures",
     desc:"AI 자동매매. Circle Ventures(USDC 발행사) 투자.",
     insight:"USDC 발행사 Circle의 벤처 부문(Circle Ventures)이 직접 투자한 AI 트레이딩 프로젝트. AI가 시장 데이터를 분석하여 자동 매매 시그널 생성. NFT 기반 에어드랍 시스템으로 NFT 보유자에게 우선 배분. Circle 투자는 결제/스테이블코인 생태계와 연결 가능성을 시사.",
-    strat:"AI 트레이딩 + NFT 보유.", ref:"https://minara.ai",
+    strat:"AI 트레이딩 + NFT 보유.", ref:"https://minara.ai/r/Y5LALR",
     yt:[{t:"Minara AI",u:"https://www.youtube.com/watch?v=9DJKCrlkkLI"}]},
 
   {id:60,n:"Abstract",cat:"L2",ch:"Abstract",logo:CL("abstract"),rw:"중형",st:"진행중",fund:"$11M",
@@ -180,15 +175,10 @@ const P = [
     insight:"Pudgy Penguins(월마트 판매 1위 NFT) 모회사 Igloo가 만든 L2. $11M 펀딩 완료. XP + 배지 시스템으로 활동 기반 포인트 축적. PENGU 홀더에게 보너스 기대. 소비자 친화적 L2로 NFT, 게임, 소셜 분야 킬러앱 유치에 집중. 강력한 브랜드 인지도가 핵심 차별점.",
     strat:"XP 포인트 + 생태계 dApp 활동.", ref:"https://abs.xyz",yt:[]},
 
-  {id:61,n:"Lighter",cat:"PerpDEX",ch:"Ethereum",logo:LL("lighter-v2.jpg"),rw:"중형",st:"진행중",
+  {id:61,n:"Lighter",cat:"PerpDEX",ch:"Ethereum",logo:LL("lighter.jpg"),rw:"중형",st:"진행중",
     desc:"ZK 기반 완전 온체인 오더북 Perp DEX.",
     insight:"ZK 기반 완전 온체인 오더북 DEX로, 거래 매칭부터 정산까지 모두 체인 위에서 처리하여 투명성과 보안성에서 강점. 중앙화된 오더 매칭이 아닌 순수 온체인 실행이라 검열 저항성이 높음. 초기 사용자 우대 구조로 에어드랍 기대값 높음.",
     strat:"거래 볼륨 축적 + 오더북 유동성 제공.", ref:"https://app.lighter.xyz/trade/ETH?referral=GMYPZWQK69X4",yt:[]},
-
-  {id:62,n:"Avantis",cat:"PerpDEX",ch:"Base",logo:LL("avantis.jpg"),rw:"중형",st:"진행중",fund:"Base Ecosystem",
-    desc:"Base 체인 Perp DEX. 예측 시장 통합.",
-    insight:"Coinbase L2 Base 체인 위에서 운영되는 Perp DEX + 예측 시장 통합 플랫폼. Base 생태계 핵심 파생상품 인프라로 자리매김 중. 예측 시장과 Perp을 하나의 플랫폼에서 제공하는 차별화 전략. Base 에어드랍과 Avantis 자체 에어드랍 이중 수혜 가능성.",
-    strat:"Perp 거래 + 예측 시장 참여 + 포인트.", ref:"https://www.avantisfi.com/referral?code=coinmage",yt:[]},
 
   {id:63,n:"Supercexy",cat:"PerpDEX",ch:"Multi",logo:LL("supercexy.jpg"),rw:"중형",st:"진행중",
     desc:"소셜 트레이딩 Perp DEX. 카피트레이딩 + 에어드랍.",
@@ -529,6 +519,21 @@ function VibeCodingSection() {
 /* ═══════════════════════════════════════════════════════════ */
 export default function App() {
   const [sec,setSec]=useState("airdrops");
+
+  // ── Security hardening ──
+  useEffect(()=>{
+    // Referrer policy
+    let meta = document.querySelector('meta[name="referrer"]');
+    if(!meta){meta=document.createElement('meta');meta.name='referrer';document.head.appendChild(meta);}
+    meta.content='strict-origin-when-cross-origin';
+    // Disable right-click context menu on external links (anti-phishing)
+    const h=e=>{const a=e.target.closest('a[target="_blank"]');if(a){a.rel='noopener noreferrer';}};
+    document.addEventListener('click',h,true);
+    // Block potential iframe embedding
+    if(window.self!==window.top){try{window.top.location=window.self.location;}catch(e){document.body.innerHTML='<h1>Framing not allowed</h1>';}}
+    return ()=>document.removeEventListener('click',h,true);
+  },[]);
+
   return (
     <div className="min-h-screen bg-[#08080d] text-zinc-200 selection:bg-violet-500/30">
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
@@ -544,13 +549,20 @@ export default function App() {
         </AnimatePresence>
       </main>
       <footer className="relative border-t border-white/[0.04] py-8">
-        <div className="max-w-2xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <a href="https://www.youtube.com/@cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-red-400 transition-colors">YouTube</a>
-            <a href="https://blog.naver.com/coinmage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-emerald-400 transition-colors">Blog</a>
-            <a href="https://t.me/cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-blue-400 transition-colors">Telegram</a>
+        <div className="max-w-2xl mx-auto px-4 space-y-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <a href="https://www.youtube.com/@cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-red-400 transition-colors">YouTube</a>
+              <a href="https://blog.naver.com/coinmage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-emerald-400 transition-colors">Blog</a>
+              <a href="https://t.me/cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-blue-400 transition-colors">Telegram</a>
+            </div>
+            <span className="text-[10px] text-zinc-700 font-mono">CryptoMage © {new Date().getFullYear()}</span>
           </div>
-          <span className="text-[10px] text-zinc-700 font-mono">CryptoMage © {new Date().getFullYear()}</span>
+          <div className="border-t border-white/[0.04] pt-4">
+            <p className="text-[9px] text-zinc-700 leading-relaxed text-center max-w-lg mx-auto">
+              ⚠️ 면책조항: 본 사이트의 정보는 교육 및 참고 목적으로만 제공되며, 투자 조언이 아닙니다. 암호화폐 투자는 높은 위험을 수반하며 원금 손실이 발생할 수 있습니다. 모든 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다. 레퍼럴 링크를 통한 가입 시 운영자에게 소정의 수수료가 지급될 수 있습니다. DYOR (Do Your Own Research).
+            </p>
+          </div>
         </div>
       </footer>
     </div>
