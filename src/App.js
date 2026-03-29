@@ -51,10 +51,10 @@ function Counter({value, duration=1.5}) {
 
 const P = [
   // ══ 추천 프로젝트 ══
-  {id:1,n:"GRVT",pick:true,cat:"PerpDEX",ch:"zkSync",logo:LL("grvt-perps.jpg"),st:"진행중",rw:"중형~대형",fund:"$47.2M",dist:"28%",tge:"Q3 2026",
-    desc:"ZKsync Validium 기반 하이브리드 거래소. CEX급 속도와 UX.",
-    insight:"Matrix Partners + Delphi Digital 리드 $47.2M 투자. 계정 기반 참여로 시빌을 효과적으로 걸러내는 구조. 메이커 수수료가 마이너스(리베이트)라 마켓메이킹할수록 돌려받음. S2 배분이 18%로 넉넉하며 예치만으로 연 10% 이자를 제공하는 Earn 프로그램 별도 운영. zkSync Validium 기술로 이더리움 보안 유지 + 초당 2만 TPS.",
-    strat:"거래량 축적 + Earn 예치 + 포인트 파밍. 봇 자동화 가능.", ref:"https://grvt.io/exchange/sign-up?ref=1O9U2GG",
+  {id:1,n:"GRVT",pick:true,cat:"PerpDEX",ch:"zkSync",logo:LL("grvt-perps.jpg"),st:"진행중",rw:"중형~대형",fund:"$47.2M (Matrix, Delphi, ABCDE, Hack VC)",dist:"28% (S1 10%+S2 18%)",tge:"Q3 2026",
+    desc:"ZKsync Validium 기반 하이브리드 거래소. CEX급 속도와 UX. 기관 타겟.",
+    insight:"Matrix Partners + Delphi Digital + ABCDE Capital + Hack VC 리드 $47.2M 투자. 자체 zkSync 하이퍼체인에서 오프체인 매칭(마이크로초 단위) + 온체인 정산(zk proof) 하이브리드 구조로 CEX급 속도와 DEX급 보안 동시 달성. 메이커 수수료 마이너스(리베이트)라 마켓메이킹할수록 돌려받음. S2 배분 18%로 넉넉하며 Earn 프로그램 연 10% 이자 제공. GLP/Vault 델타뉴트럴 전략으로 연 ~48% 수익률(샤프비율 7.6). 스팟 트레이딩 2026.04 런칭 예정. 2026 확장: 헤지펀드 전략, RWA, Forex 상품 계획.",
+    strat:"거래량 축적 + Earn 예치 + GLP 볼트 + 포인트 파밍. 봇 자동화 가능.", ref:"https://grvt.io/exchange/sign-up?ref=1O9U2GG",
     yt:[{t:"초보자 GRVT 올인원 가이드",u:"https://youtu.be/cYnAPdjzjhk"},{t:"GRVT 자동매매 봇",u:"https://www.youtube.com/watch?v=aIBweqY8A4s"}]},
 
   {id:3,n:"Aster",pick:true,cat:"PerpDEX",ch:"Aster L1",logo:LL("aster-bridge.jpg"),st:"진행중",rw:"대형",fund:"YZi Labs (CZ)",dist:"53.5%",tge:"진행중",hot:true,
@@ -67,10 +67,10 @@ const P = [
     insight:"2026.04.12 GENIUS 토큰 생성 확정. TGE 임박이라 지금이 마지막 참여 기회. YZi Labs가 8자리 달러를 투자. S1 마감 임박 — 주간 1,000만 GP(Genius Points) 배포 중이며 포인트→토큰 전환 시 50% 보너스 예정. 스팟 거래 볼륨이 GP 배분 핵심 기준.",
     strat:"스팟 거래 볼륨 축적 (GP 배분 기준) + S1 마감 전 참여.", ref:"https://www.tradegenius.com/ref/A33HVN",yt:[]},
 
-  {id:5,n:"Variational",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:LL("variational.jpg"),st:"진행중",rw:"대형",fund:"$11.8M",dist:"50%",tge:"미정",
+  {id:5,n:"Variational",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:LL("variational.jpg"),st:"진행중",rw:"대형",fund:"$11.8M (Bain, Coinbase, Peak XV)",dist:"50%",tge:"Q3-Q4 2026",
     desc:"500+ 페어 Perp DEX. 커뮤니티 50% 배분. 0% 수수료 + 손실 환급.",
-    insight:"Bain Capital Crypto + Coinbase Ventures + Peak XV(구 세쿼이아 인디아) $11.8M 투자. 커뮤니티 50% 배분은 역대 최고 수준. 무수수료(0%)라서 거래 비용 부담 없고 손실 환급 프로그램까지 운영. 양방 OI(오픈인터레스트) 유지 전략과 알트코인 가중치 활용이 효율적인 파밍법.",
-    strat:"양방 OI 유지 + 레퍼럴 + 알트코인 가중치 활용.", ref:"https://variational.io",
+    insight:"Bain Capital Crypto + Coinbase Ventures + Peak XV(구 세쿼이아 인디아) $11.8M 투자. 커뮤니티 50% 배분은 Perp DEX 역대 최고 수준. 무수수료(0%)에 스프레드가 Binance VIP Tier 4 수준. 손실 환급 프로그램 운영. $VAR 토큰 공식 발표. TVL $125.8M. Omni Points 주간 ~150K 배분 중이며 포인트 획득 난이도가 매주 5배씩 증가하므로 빠른 진입이 유리. 포인트당 $50+ 추정(커뮤니티 분석). 모든 데이터 API로 검증 가능하여 투명성 높음.",
+    strat:"양방 OI 유지 + 레퍼럴 + 알트코인 가중치 활용 + 빠른 Omni Points 확보.", ref:"https://variational.io",
     yt:[{t:"Variational 양방 OI 유지",u:"https://youtu.be/AfH8wppr0xc"}]},
 
   {id:6,n:"Extended",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:LL("extended.jpg"),st:"진행중",rw:"대형",fund:"$6.5M",dist:"30% 확정",tge:"Q2 2026",
@@ -90,17 +90,16 @@ const P = [
     strat:"Base dApp 활동 + 브릿지 + DeFi 파밍.", ref:"https://base.app/invite/coinmage/VGM6F57T",
     yt:[{t:"중국이 주목하는 에어드랍 2026",u:"https://youtu.be/aIr4gE59IWQ"}]},
 
-  // ══ 일반 프로젝트 ══
-  {id:20,n:"Ethereal",cat:"PerpDEX",ch:"Ethereum",logo:LL("ethereal-dex.jpg"),st:"진행중",rw:"대형",fund:"Ethena",dist:"15%",tge:"미정",
-    desc:"Ethena 생태계 Perp DEX. USDe 마진. 30x 리워드 부스트.",
-    insight:"Ethena(USDe 발행사) 직접 인큐베이팅. ENA 홀더에게 15% 거버넌스 토큰 직접 배분. Ethena 사용 시 30x 리워드 부스트. USDe 마진으로 스테이블 예치 수익 + 거래 리워드 이중 수익 구조.",
-    strat:"USDe 마진 예치 + Perp 거래 + ENA 홀딩 부스트.", ref:"https://ethereal.trade",yt:[]},
+  {id:9,n:"EdgeX",pick:true,cat:"PerpDEX",ch:"Ethereum (StarkEx)",logo:LL("edgex.jpg"),st:"TGE임박",rw:"대형",fund:"Amber Group, CIRCLE Ventures",dist:"30%",tge:"Mar 31, 2026",hot:true,
+    desc:"StarkEx 기반 Perp DEX #4. 누적 거래량 $91B. EDGE 토큰 TGE 3/31 확정.",
+    insight:"Amber Group + CIRCLE Ventures(USDC 발행사 벤처) 투자. 누적 거래량 $91B, 24시간 $2.28B, OI $775M으로 파생상품 DEX 4위. EDGE TGE 2026.03.31 확정. 25% 커뮤니티 + 5% pre-TGE = 총 30% 에어드랍 배분. 프리마켓 가격 ~$0.68(ATH $0.83), FDV ~$705M. V2에서 스팟 트레이딩 + 예측시장 + 토큰화 자산 + 미국 주식 Perp 통합 — 단순 Perp DEX에서 종합 트레이딩 플랫폼으로 확장 중. 한국 커뮤니티 참여도 높음.",
+    strat:"3/31 TGE 클레임 준비 + 프리마켓 가격 변동 모니터링 + 상장 직후 유동성/슬리피지 확인 후 매도 타이밍 판단.", ref:"https://pro.edgex.exchange/referral/570254647",yt:[]},
 
-  {id:21,n:"Based",cat:"PerpDEX",ch:"Hyperliquid",logo:LL("basedmarkets.png"),st:"진행중",rw:"중형~대형",fund:"-",dist:"미정",tge:"미정",
-    desc:"Hyperliquid 기반 6중 파밍 모바일 Perp DEX.",
-    insight:"HL XP + Based Points + Builder Code + 이벤트 + 레퍼럴 + LP 수익 6중 보상. 한 번의 거래로 6개 보상 동시 수확하는 역대급 효율. HYPE 38.8% 미래 커뮤니티 보상 간접 수혜. 모바일 앱 UX가 CEX급으로 초보자도 쉽게 접근 가능. Hyperliquid 생태계 성장과 함께 직접 수혜 기대.",
-    strat:"6중 파밍 + 모바일 거래.", ref:"https://app.based.one/register?ref=COINMAGE",
-    yt:[{t:"Based 6중 파밍법",u:"https://youtu.be/0hqZI7P8Iyc"}]},
+  // ══ 일반 프로젝트 ══
+  {id:20,n:"Ethereal",cat:"PerpDEX",ch:"Ethereum",logo:LL("ethereal-dex.jpg"),st:"진행중",rw:"대형",fund:"Ethena 에코시스템",dist:"15%",tge:"미정",
+    desc:"Ethena 생태계 Perp DEX. USDe 마진. 30x 리워드 부스트.",
+    insight:"Ethena(USDe 발행사) 직접 인큐베이팅. 누적 거래량 $5B, OI $126M, TVL $65M. ENA 홀더에게 15% 거버넌스 토큰 직접 배분 확정. USDe 예치 시 Ethereal Points + Ethena 리워드 30x 부스트 동시 획득. Season Zero 예치금 $400M 이상 유입. USDe 마진은 트레이딩 중에도 Ethena 수익률을 계속 생성하여 자본 효율성 극대화. Ethena S5 마감 3/31 임박 — 지금 참여해야 리워드 구조 변경 전 혜택 확보 가능.",
+    strat:"USDe 마진 예치 + Perp 거래 + ENA 홀딩 부스트. S5 마감 전 참여.", ref:"https://ethereal.trade",yt:[]},
 
   {id:22,n:"Silhouette",cat:"PerpDEX",ch:"HyperEVM",logo:LL("silhouette-naked.jpg"),st:"진행중",rw:"중형~대형",fund:"$3M",dist:"미정",tge:"미정",
     desc:"HyperEVM 최초 프라이버시 Perp DEX. Shielded Trading.",
@@ -113,10 +112,10 @@ const P = [
     insight:"Vitalik + Dragonfly $107M 투자. 35K TPS로 Solana급 속도를 이더리움 보안 위에서 구현. Polymarket에서 67% 확률 2026.06.30 이전 TGE 예측. Fluffle NFT 홀더 5% 보장. 2026.02.09 메인넷 라이브.",
     strat:"브릿지 + dApp 사용 + Fluffle NFT 보유 시 보장.", ref:"https://megaeth.systems",yt:[]},
 
-  {id:24,n:"Reya",cat:"PerpDEX",ch:"Ethereum",logo:LL("reya-perps.jpg"),st:"진행중",rw:"중형~대형",fund:"$19M",dist:"45%",tge:"미정",
-    desc:"모듈러 PerpDEX 체인. 45% 커뮤니티. 2 Sigma 출신 팀.",
-    insight:"Framework Ventures + Coinbase Ventures $19M. 커뮤니티 45%는 PerpDEX 중 상위권(Variational 50%, Aster 53.5% 다음). 자체 L2 모듈러 체인으로 가스비 없는 환경. 2 Sigma(퀀트펀드) 출신 팀.",
-    strat:"Perp 거래 + 유동성 제공.", ref:"https://reya.network",yt:[]},
+  {id:24,n:"Reya",cat:"PerpDEX",ch:"Reya Chain (자체 L2)",logo:LL("reya-perps.jpg"),st:"진행중",rw:"중형~대형",fund:"$19M (Framework, Coinbase)",dist:"45%",tge:"미정",
+    desc:"모듈러 PerpDEX 체인. 45% 커뮤니티. Voltz Protocol 팀 피벗.",
+    insight:"Framework Ventures + Coinbase Ventures $19M 투자. 커뮤니티 45%는 PerpDEX 중 상위권(Variational 50%, Aster 53.5% 다음). Voltz Protocol(금리 스왑) 팀이 Perp DEX로 전환한 프로젝트로 기술력 검증됨. 자체 L2(Reya Chain) 운영으로 밀리초 실행 속도 + 가스비 제로 환경. CoinList 토큰 세일 완료($0.01875/token). 자체 체인이라 주문 실행 속도와 가스비 최적화에 직접 통제권 확보.",
+    strat:"Perp 거래 포인트 + 유동성 제공 + 레퍼럴.", ref:"https://reya.network",yt:[]},
 
   {id:25,n:"Pacifica",cat:"PerpDEX",ch:"Solana",logo:LL("pacifica.jpg"),st:"진행중",rw:"중형~대형",fund:"Self-funded",dist:"미정",tge:"미정",
     desc:"FTX 전 COO 설립. VC 없이 자체 펀딩 (하이퍼리퀴드 모델).",
@@ -180,6 +179,21 @@ const P = [
     desc:"Pudgy Penguins 모회사 Igloo L2. XP 포인트.",
     insight:"Pudgy Penguins(월마트 판매 1위 NFT) 모회사 Igloo가 만든 L2. $11M 펀딩 완료. XP + 배지 시스템으로 활동 기반 포인트 축적. PENGU 홀더에게 보너스 기대. 소비자 친화적 L2로 NFT, 게임, 소셜 분야 킬러앱 유치에 집중. 강력한 브랜드 인지도가 핵심 차별점.",
     strat:"XP 포인트 + 생태계 dApp 활동.", ref:"https://abs.xyz",yt:[]},
+
+  {id:61,n:"Lighter",cat:"PerpDEX",ch:"Ethereum",logo:LL("lighter-v2.jpg"),rw:"중형",st:"진행중",
+    desc:"ZK 기반 완전 온체인 오더북 Perp DEX.",
+    insight:"ZK 기반 완전 온체인 오더북 DEX로, 거래 매칭부터 정산까지 모두 체인 위에서 처리하여 투명성과 보안성에서 강점. 중앙화된 오더 매칭이 아닌 순수 온체인 실행이라 검열 저항성이 높음. 초기 사용자 우대 구조로 에어드랍 기대값 높음.",
+    strat:"거래 볼륨 축적 + 오더북 유동성 제공.", ref:"https://app.lighter.xyz/trade/ETH?referral=GMYPZWQK69X4",yt:[]},
+
+  {id:62,n:"Avantis",cat:"PerpDEX",ch:"Base",logo:LL("avantis.jpg"),rw:"중형",st:"진행중",fund:"Base Ecosystem",
+    desc:"Base 체인 Perp DEX. 예측 시장 통합.",
+    insight:"Coinbase L2 Base 체인 위에서 운영되는 Perp DEX + 예측 시장 통합 플랫폼. Base 생태계 핵심 파생상품 인프라로 자리매김 중. 예측 시장과 Perp을 하나의 플랫폼에서 제공하는 차별화 전략. Base 에어드랍과 Avantis 자체 에어드랍 이중 수혜 가능성.",
+    strat:"Perp 거래 + 예측 시장 참여 + 포인트.", ref:"https://www.avantisfi.com/referral?code=coinmage",yt:[]},
+
+  {id:63,n:"Supercexy",cat:"PerpDEX",ch:"Multi",logo:LL("supercexy.jpg"),rw:"중형",st:"진행중",
+    desc:"소셜 트레이딩 Perp DEX. 카피트레이딩 + 에어드랍.",
+    insight:"소셜 트레이딩(카피트레이딩) 기능을 핵심으로 하는 Perp DEX. 상위 트레이더 전략을 자동 복사하여 초보자도 쉽게 참여 가능. 커뮤니티 기반 트레이딩 인프라로 레퍼럴 프로그램 운영 중. 에어드랍 물량 축적 가능.",
+    strat:"카피트레이딩 + 레퍼럴 + 포인트 파밍.", ref:"https://supercexy.com/@coinmage",yt:[]},
 ];
 
 const YT = id => `https://www.youtube.com/watch?v=${id}`;
@@ -207,17 +221,14 @@ const ALL_VIDS = [
   {t:"스테이블 디퓨전 초보자 가이드",v:"3.4K",id:"b4j58RMiakU",g:"art"},
   // ═ 에어드랍 가이드 ═
   {t:"Minara 서클벤처 + AI자동매매",v:"250",id:"bCC-6jacJ9U",g:"drop"},
-  {t:"TCG 에어드랍 4종 정리",v:"1K",id:"p_9ibz1zPwA",g:"drop"},
   {t:"xStocks 에어드랍 파밍",v:"399",id:"E-fHENsX-Gk",g:"drop"},
   {t:"Fair Shares 무료 에드",v:"513",id:"c5ykmklMJoU",g:"drop"},
-  {t:"Nado 통합증거금 혁신",v:"385",id:"0dZdAMJK_l4",g:"drop"},
   {t:"실루엣 Shielded Trading",v:"341",id:"UTWmrmTF9Wg",g:"drop"},
   {t:"GRVT 올인원 가이드",v:"614",id:"aIBweqY8A4s",g:"drop"},
   {t:"Hylo · OnRe 고정수익 4중 파밍",v:"581",id:"vkrCgskj_GA",g:"drop"},
   {t:"Arc 결제 전용 블록체인",v:"433",id:"MUTrYFUQOU0",g:"drop"},
   {t:"퍼프덱스 메가트렌드 총정리",v:"2.4K",id:"mkUG7rb_GEM",g:"drop"},
   {t:"Tempo 테스트넷 작업",v:"753",id:"xNphMdfP0yU",g:"drop"},
-  {t:"Kodiak Amber 베라체인 인프라",v:"456",id:"_69zUhSi8NM",g:"drop"},
 ];
 
 const VID_GROUPS = [
@@ -246,8 +257,8 @@ function Nav({sec,setSec}) {
   return (
     <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-2xl bg-[#0a0a0f]/90 border-b border-white/[0.06] shadow-lg shadow-black/20' : 'bg-transparent'}`}>
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-        <a href="https://www.youtube.com/@CryptoMage" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 flex items-center justify-center shadow-lg shadow-violet-500/25"><Sparkles size={14} className="text-white"/></div>
+        <a href="https://www.youtube.com/@cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+          <img src={TW("2001105770780483585/Ph9MFPHV_400x400.jpg")} alt="CryptoMage" className="w-8 h-8 rounded-xl shadow-lg shadow-violet-500/25 bg-white/[0.04]"/>
           <div className="flex flex-col">
             <span className="font-bold text-sm text-white tracking-tight leading-none">CryptoMage</span>
             <span className="text-[9px] text-zinc-600 font-mono leading-none mt-0.5">7.7K subscribers</span>
@@ -263,7 +274,7 @@ function Nav({sec,setSec}) {
         <div className="flex items-center gap-2.5">
           <a href="https://blog.naver.com/coinmage" target="_blank" rel="noopener noreferrer" className="text-[11px] text-zinc-500 hover:text-white transition-colors hidden sm:block">블로그</a>
           <a href="https://t.me/cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="text-[11px] text-zinc-500 hover:text-white transition-colors hidden sm:block">텔레그램</a>
-          <a href="https://www.youtube.com/@CryptoMage" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 text-[11px] font-medium hover:bg-red-500/20 transition-all border border-red-500/10"><Play size={10} fill="currentColor"/>YouTube</a>
+          <a href="https://www.youtube.com/@cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 text-[11px] font-medium hover:bg-red-500/20 transition-all border border-red-500/10"><Play size={10} fill="currentColor"/>YouTube</a>
         </div>
       </div>
     </nav>
@@ -505,7 +516,7 @@ function VibeCodingSection() {
         ))}
       </div>
 
-      <a href="https://www.youtube.com/@CryptoMage" target="_blank" rel="noopener noreferrer"
+      <a href="https://www.youtube.com/@cryptocurrencymage" target="_blank" rel="noopener noreferrer"
         className="flex items-center justify-center gap-2.5 py-4 rounded-2xl bg-gradient-to-r from-red-500/10 to-red-600/10 border border-red-500/15 text-sm font-semibold text-red-300 hover:from-red-500/20 hover:to-red-600/20 transition-all duration-300">
         <Play size={14} fill="currentColor"/> 크립토메이지 YouTube 구독
       </a>
@@ -535,7 +546,7 @@ export default function App() {
       <footer className="relative border-t border-white/[0.04] py-8">
         <div className="max-w-2xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <a href="https://www.youtube.com/@CryptoMage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-red-400 transition-colors">YouTube</a>
+            <a href="https://www.youtube.com/@cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-red-400 transition-colors">YouTube</a>
             <a href="https://blog.naver.com/coinmage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-emerald-400 transition-colors">Blog</a>
             <a href="https://t.me/cryptocurrencymage" target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-blue-400 transition-colors">Telegram</a>
           </div>
