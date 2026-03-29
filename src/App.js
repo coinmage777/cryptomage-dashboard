@@ -62,10 +62,10 @@ const P = [
     insight:"역대 최대 53.5% 커뮤니티 에어드랍으로 화제. Stage 6 진행중이며 일일 거래량 $787M ATH 기록. 전 바이낸스 직원 다수 합류. 자체 L1 테스트넷 가동 중이며 1001x 레버리지, 히든오더(대규모 주문 숨김), 크로스체인 결제 등 혁신적 기능 탑재. YZi Labs(구 Binance Labs) 직접 지원으로 바이낸스 상장 가능성도 높게 점쳐짐.",
     strat:"Stage 6 파밍 + 거래 볼륨 + 스테이킹.", ref:"https://aster.trade",yt:[]},
 
-  {id:4,n:"Genius",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:TW("2001105770780483585/Ph9MFPHV_400x400.jpg"),st:"진행중",rw:"대형",fund:"YZi Labs (CZ)",dist:"미정",tge:"Apr 12, 2026",hot:true,
+  {id:4,n:"Genius",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:TW("1937894252031148032/PRE0DE0Z_400x400.jpg"),st:"진행중",rw:"대형",fund:"YZi Labs (CZ)",dist:"미정",tge:"Apr 12, 2026",hot:true,
     desc:"YZi Labs 8자리 투자 + CZ 어드바이저. 올인원 트레이딩 터미널.",
     insight:"2026.04.12 GENIUS 토큰 생성 확정. TGE 임박이라 지금이 마지막 참여 기회. YZi Labs가 8자리 달러를 투자. S1 마감 임박 — 주간 1,000만 GP(Genius Points) 배포 중이며 포인트→토큰 전환 시 50% 보너스 예정. 스팟 거래 볼륨이 GP 배분 핵심 기준.",
-    strat:"스팟 거래 볼륨 축적 (GP 배분 기준) + S1 마감 전 참여.", ref:"https://genius.trade",yt:[]},
+    strat:"스팟 거래 볼륨 축적 (GP 배분 기준) + S1 마감 전 참여.", ref:"https://www.tradegenius.com/ref/A33HVN",yt:[]},
 
   {id:5,n:"Variational",pick:true,cat:"PerpDEX",ch:"Multi-chain",logo:LL("variational.jpg"),st:"진행중",rw:"대형",fund:"$11.8M",dist:"50%",tge:"미정",
     desc:"500+ 페어 Perp DEX. 커뮤니티 50% 배분. 0% 수수료 + 손실 환급.",
@@ -182,12 +182,50 @@ const P = [
     strat:"XP 포인트 + 생태계 dApp 활동.", ref:"https://abs.xyz",yt:[]},
 ];
 
-const VIBE_VIDS = [
-  {t:"AI 16개 DEX 동시 자동매매 봇",v:"1.3K",u:"https://www.youtube.com/watch?v=0dZdAMJK_l4"},
-  {t:"GRVT 자동매매 봇 만들기",v:"438",u:"https://www.youtube.com/watch?v=aIBweqY8A4s"},
-  {t:"Claude로 리서치 자동화",v:"3.1K",u:"https://www.youtube.com/watch?v=Bx5zgBbR_oU"},
-  {t:"Cursor DCA 시뮬레이터",v:"1.2K",u:"https://www.youtube.com/watch?v=H1bOhm0b6R0"},
-  {t:"퍼프덱스 메가트렌드 총정리",v:"2.1K",u:"https://youtu.be/ADpLc3c6wSE"},
+const YT = id => `https://www.youtube.com/watch?v=${id}`;
+const THUMB = id => `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+
+const ALL_VIDS = [
+  // ═ 자동매매 봇 ═
+  {t:"PerpDEX 16개 동시 자동매매 봇",v:"1.3K",id:"jNCnE_meJTw",g:"bot"},
+  {t:"GRVT 자동매매 봇 실거래",v:"440",id:"oiG4ppTB3rQ",g:"bot"},
+  {t:"GRVT 워시 & OI 부스팅 실전",v:"251",id:"TmJY4S7Y_oU",g:"bot"},
+  {t:"Backpack 자동매매 봇 가이드",v:"783",id:"q84UWHMtbQA",g:"bot"},
+  {t:"PerpDEX 자동매매 봇 (NADO)",v:"709",id:"Fyq8M2Cy__I",g:"bot"},
+  // ═ AI 도구 ═
+  {t:"AI + 옵시디언 수익률 데이터",v:"242",id:"91eNcuninV0",g:"ai"},
+  {t:"Claude 자동 시그널 리포트",v:"3.1K",id:"Bx5zgBbR_oU",g:"ai"},
+  {t:"Cursor DCA 시뮬레이터",v:"436",id:"H1bOhm0b6R0",g:"ai"},
+  {t:"AI 에이전트 사주앱 (Claude Code)",v:"546",id:"PQ_EjWX0Fnw",g:"ai"},
+  {t:"OpenClaw 텔레그램 AI 비서",v:"10K",id:"HAMHYvAekjw",g:"ai"},
+  {t:"비트코인 AI 시그널 분석",v:"429",id:"222YdCeJe3o",g:"ai"},
+  // ═ AI 아트 ═
+  {t:"ComfyUI 완벽 입문 2026",v:"7K",id:"MN4PpubmG10",g:"art"},
+  {t:"ComfyUI ControlNet 끝내기",v:"909",id:"3En3BJW2tjc",g:"art"},
+  {t:"SD → Grok AI 영상 만들기",v:"516",id:"dSsbWFwOpe4",g:"art"},
+  {t:"SD LoRA 완전정복",v:"1K",id:"k9o_dar13Vc",g:"art"},
+  {t:"스테이블 디퓨전 초보자 가이드",v:"3.4K",id:"b4j58RMiakU",g:"art"},
+  // ═ 에어드랍 가이드 ═
+  {t:"Minara 서클벤처 + AI자동매매",v:"250",id:"bCC-6jacJ9U",g:"drop"},
+  {t:"TCG 에어드랍 4종 정리",v:"1K",id:"p_9ibz1zPwA",g:"drop"},
+  {t:"xStocks 에어드랍 파밍",v:"399",id:"E-fHENsX-Gk",g:"drop"},
+  {t:"Fair Shares 무료 에드",v:"513",id:"c5ykmklMJoU",g:"drop"},
+  {t:"Nado 통합증거금 혁신",v:"385",id:"0dZdAMJK_l4",g:"drop"},
+  {t:"실루엣 Shielded Trading",v:"341",id:"UTWmrmTF9Wg",g:"drop"},
+  {t:"GRVT 올인원 가이드",v:"614",id:"aIBweqY8A4s",g:"drop"},
+  {t:"Hylo · OnRe 고정수익 4중 파밍",v:"581",id:"vkrCgskj_GA",g:"drop"},
+  {t:"Arc 결제 전용 블록체인",v:"433",id:"MUTrYFUQOU0",g:"drop"},
+  {t:"퍼프덱스 메가트렌드 총정리",v:"2.4K",id:"mkUG7rb_GEM",g:"drop"},
+  {t:"Tempo 테스트넷 작업",v:"753",id:"xNphMdfP0yU",g:"drop"},
+  {t:"Kodiak Amber 베라체인 인프라",v:"456",id:"_69zUhSi8NM",g:"drop"},
+];
+
+const VID_GROUPS = [
+  {id:"all",l:"전체"},
+  {id:"bot",l:"자동매매 봇"},
+  {id:"ai",l:"AI 도구"},
+  {id:"art",l:"AI 아트"},
+  {id:"drop",l:"에어드랍"},
 ];
 
 
@@ -427,29 +465,44 @@ function AirdropsSection() {
 }
 
 function VibeCodingSection() {
+  const [vf,setVf]=useState("all");
+  const vids = useMemo(()=>vf==="all"?ALL_VIDS:ALL_VIDS.filter(v=>v.g===vf),[vf]);
+
   return (
-    <div className="space-y-6 pt-6">
+    <div className="space-y-5 pt-6">
       <div>
-        <motion.h1 initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} className="text-2xl sm:text-3xl font-bold text-white mb-1 tracking-tight">바이브코딩</motion.h1>
-        <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.1}} className="text-sm text-zinc-500">AI로 자동매매 봇, 트레이딩 도구 직접 만들기</motion.p>
+        <motion.h1 initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} className="text-2xl sm:text-3xl font-bold text-white mb-1 tracking-tight">영상 라이브러리</motion.h1>
+        <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.1}} className="text-sm text-zinc-500">자동매매 봇, AI 도구, 에어드랍 가이드 영상 모음</motion.p>
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.15}} className="mt-3 flex gap-3">
+          <div className="bg-gradient-to-br from-red-500/15 to-pink-500/10 backdrop-blur-sm border border-white/[0.06] rounded-2xl px-5 py-3">
+            <div className="text-2xl font-bold font-mono text-red-300"><Counter value={ALL_VIDS.length}/></div>
+            <div className="text-[10px] text-zinc-500 mt-0.5 font-medium">영상</div>
+          </div>
+        </motion.div>
       </div>
 
+      <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none pb-1">
+        {VID_GROUPS.map(g=>(
+          <button key={g.id} onClick={()=>setVf(g.id)} className={`px-3 py-1.5 rounded-lg text-[11px] font-medium whitespace-nowrap transition-all duration-200 ${vf===g.id?'bg-gradient-to-r from-red-500/20 to-pink-500/20 text-white border border-red-500/20':'text-zinc-500 hover:text-zinc-300'}`}>{g.l}</button>
+        ))}
+      </div>
 
-      <div>
-        <div className="flex items-center gap-2.5 mb-3 px-1">
-          <div className="w-6 h-6 rounded-lg bg-red-500/10 flex items-center justify-center border border-red-500/20"><Play size={12} fill="currentColor" className="text-red-400"/></div>
-          <span className="text-sm font-bold text-zinc-300">바이브코딩 영상</span>
-        </div>
-        <div className="space-y-2">
-          {VIBE_VIDS.map((v,i)=>(
-            <motion.a key={i} initial={{opacity:0,y:6}} animate={{opacity:1,y:0}} transition={{delay:0.05*i}}
-              href={v.u} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3.5 backdrop-blur-sm bg-white/[0.025] border border-white/[0.06] rounded-2xl p-4 hover:bg-red-500/[0.04] hover:border-red-500/15 transition-all duration-200 group">
-              <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center flex-shrink-0 border border-red-500/10"><Play size={14} fill="currentColor" className="text-red-400"/></div>
-              <div className="flex-1 min-w-0"><div className="text-[14px] text-white truncate group-hover:text-red-200 transition-colors">{v.t}</div><div className="text-[11px] text-zinc-600 mt-0.5">{v.v} views</div></div>
-              <ExternalLink size={13} className="text-zinc-700 flex-shrink-0"/>
-            </motion.a>
-          ))}
-        </div>
+      <div className="text-[11px] text-zinc-600 font-medium">{vids.length}개 영상</div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        {vids.map((v,i)=>(
+          <motion.a key={v.id} initial={{opacity:0,y:6}} animate={{opacity:1,y:0}} transition={{delay:0.03*i}}
+            href={YT(v.id)} target="_blank" rel="noopener noreferrer" className="flex gap-3 backdrop-blur-sm bg-white/[0.025] border border-white/[0.06] rounded-2xl p-3 hover:bg-red-500/[0.04] hover:border-red-500/15 transition-all duration-200 group overflow-hidden">
+            <div className="w-24 h-14 rounded-lg overflow-hidden flex-shrink-0 bg-white/[0.04] relative">
+              <img src={THUMB(v.id)} alt={v.t} className="w-full h-full object-cover" loading="lazy"/>
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"><Play size={16} fill="currentColor" className="text-white drop-shadow-lg"/></div>
+            </div>
+            <div className="flex-1 min-w-0 flex flex-col justify-center">
+              <div className="text-[13px] text-white line-clamp-2 leading-snug group-hover:text-red-200 transition-colors">{v.t}</div>
+              <div className="text-[10px] text-zinc-600 mt-1">{v.v} views</div>
+            </div>
+          </motion.a>
+        ))}
       </div>
 
       <a href="https://www.youtube.com/@CryptoMage" target="_blank" rel="noopener noreferrer"
