@@ -270,6 +270,12 @@ function PCard({p,onClick}) {
 }
 
 function PModal({p,onClose}) {
+  useEffect(()=>{
+    if(!p) return;
+    const h=e=>{if(e.key==='Escape') onClose();};
+    window.addEventListener('keydown',h);
+    return ()=>window.removeEventListener('keydown',h);
+  },[p,onClose]);
   if(!p) return null;
   const cc = CAT_C[p.cat]||CAT_C["DeFi"];
   return (
@@ -397,17 +403,19 @@ function AirdropsSection() {
           className="w-full backdrop-blur-md bg-white/[0.035] border border-white/[0.08] rounded-2xl pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-violet-500/40 focus:bg-white/[0.05] transition-all duration-200"/>
       </div>
 
-      <div className="flex gap-2.5 overflow-x-auto scrollbar-none pb-1">
+      <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-1">
         <div className="flex items-center gap-0.5 bg-white/[0.03] backdrop-blur-sm rounded-xl p-1 flex-shrink-0 border border-white/[0.05]">
-          {[{id:"all",l:"전체"},{id:"pick",l:"추천"}].map(t=>(
+          {[{id:"all",l:"전체"},{id:"pick",l:`추천 ${pickCount}`}].map(t=>(
             <button key={t.id} onClick={()=>setPf(t.id)} className={`px-3.5 py-1.5 rounded-lg text-[11px] font-medium transition-all duration-200 ${pf===t.id?'bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 text-white shadow-sm border border-white/[0.08]':'text-zinc-500 hover:text-zinc-300'}`}>{t.l}</button>
           ))}
         </div>
+        <div className="w-px h-5 bg-white/[0.08] flex-shrink-0"/>
         <div className="flex items-center gap-1 overflow-x-auto scrollbar-none">
-          {cats.map(c=>(<button key={c} onClick={()=>setCf(c)} className={`px-2.5 py-1.5 rounded-lg text-[10px] font-medium whitespace-nowrap transition-all duration-200 ${cf===c?'bg-violet-500/20 text-violet-300 border border-violet-500/20':'text-zinc-600 hover:text-zinc-400'}`}>{c==="all"?"전체":c}</button>))}
+          {cats.map(c=>(<button key={c} onClick={()=>setCf(c)} className={`px-2.5 py-1.5 rounded-lg text-[10px] font-medium whitespace-nowrap transition-all duration-200 ${cf===c?'bg-violet-500/20 text-violet-300 border border-violet-500/20':'text-zinc-600 hover:text-zinc-400'}`}>{c==="all"?"카테고리":c}</button>))}
         </div>
       </div>
 
+      {(q || pf!=="all" || cf!=="all") && <div className="text-[11px] text-zinc-600 font-medium">{sorted.length}개 프로젝트</div>}
       <div className="space-y-2">
         {sorted.map(p=><PCard key={p.id} p={p} onClick={()=>setSel(p)}/>)}
         {sorted.length===0 && <div className="text-center py-12 text-zinc-600 text-sm">검색 결과가 없습니다</div>}
